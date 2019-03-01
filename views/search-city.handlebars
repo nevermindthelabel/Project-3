@@ -1,0 +1,28 @@
+{{#if report}}
+<table class="table table-sm table-light">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Description</th>
+            <th scope="col">Location</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each report}}
+        <tr>
+            <td>{{this.type}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.location}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.state}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<h1 class="text-center">Sorry, no results found</h1>
+{{/if}}
+{{!-- </div> --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
