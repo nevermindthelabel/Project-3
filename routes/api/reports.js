@@ -11,3 +11,5 @@ router.route("/:id")
 	.get(reportsController.findById)
 	.put(reportsController.update)
 	.delete(reportsController.remove);
+
+module.exports = router

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../../config/middleware/isAuthenticated.js");
 
 //Matches with "/api/users"
 router.route("/")
@@ -12,7 +12,9 @@ router.route("/:id")
 
 //Matches with "/api/users/current-user"
 router.route("/current-user")
-	.get(isAuthenticated, (req, res) => {
+	.get((req, res) => {
 		console.log(req.user);
 		res.json(req.user);
 	});
+
+module.exports = router
