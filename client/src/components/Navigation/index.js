@@ -5,8 +5,8 @@ import { Nav, Button, Navbar } from 'react-bootstrap';
 
 
 export default class Navigation extends React.Component {
-    loginDialog=React.createRef()
-    handleLoginClick=()=> {
+    loginDialog = React.createRef()
+    handleLoginClick = () => {
         this.loginDialog.current.show()
     }
     render() {
@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
                     </nav>
                 </Navbar.Collapse>
                 <LoginDialog ref={this.loginDialog} />
-            </Navbar >
+            </Navbar>
         )
     }
 }

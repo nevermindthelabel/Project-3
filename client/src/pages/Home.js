@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar, { Modal } from "../components/Navbar";
+import Navigation from "../components/Navigation";
 
 class Home extends Component {
 	state = {}
@@ -7,9 +7,10 @@ class Home extends Component {
 	//functions n stuff
 
 	render() {
-		<Navbar>
-			{/* blah blah blah */}
-			{/* <Modal /> */}
-		</Navbar>
+		return (
+			<Navigation />
+		)
 	}
 }
+
+export default Home;

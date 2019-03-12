@@ -19,9 +19,6 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.5",
     "bcrypt-nodejs": "0.0.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^6.0.0",
@@ -30,6 +27,10 @@
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.8.4",
+    "react-scripts": "^2.1.8",
     "sequelize": "^4.41.2"
   },
   "eslintConfig": {
