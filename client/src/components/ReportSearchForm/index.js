@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function NewSearchForm(props) {
+function ReportSearchForm(props) {
     
     return (
         <Form>
@@ -74,4 +74,4 @@ function NewSearchForm(props) {
     );
 }
 
-export default NewSearchForm;
+export default ReportSearchForm;
