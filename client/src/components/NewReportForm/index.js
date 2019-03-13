@@ -6,7 +6,7 @@ function NewReportForm(props) {
 		<Form>
 			<Form.Group controlId="trafficReport.ControlSelect1">
 				<Form.Label>Report Type</Form.Label>
-				<Form.Control as="select">
+				<Form.Control as="select" onChange={props.onChange}>
 					<option>Traffic</option>
 					<option>Minor Accident</option>
 					<option>Major Accident</option>
@@ -17,22 +17,22 @@ function NewReportForm(props) {
 
 			<Form.Group controlId="trafficReport.ControlInput1">
 				<Form.Label>Description</Form.Label>
-				<Form.Control type="text" placeholder="Description" />
+				<Form.Control type="text" placeholder="Description" onChange={props.onChange} />
 			</Form.Group>
 
 			<Form.Group controlId="trafficReport.ControlInput2">
 				<Form.Label>Location Description</Form.Label>
-				<Form.Control type="text" placeholder="Location (Describe location)" />
+				<Form.Control type="text" placeholder="Location (Describe location)" onChange={props.onChange} />
 			</Form.Group>
 
 			<Form.Group controlId="trafficReport.ControlInput3">
 				<Form.Label>City</Form.Label>
-				<Form.Control type="text" placeholder="City" />
+				<Form.Control type="text" placeholder="City" onChange={props.onChange} />
 			</Form.Group>
 
 			<Form.Group controlId="trafficReport.ControlSelect2">
 				<Form.Label>State</Form.Label>
-				<Form.Control as="select">
+				<Form.Control as="select" onChange={props.onChange}>
 					<option>Alabama</option>
 					<option>Alaska</option>
 					<option>Arizona</option>
@@ -86,7 +86,7 @@ function NewReportForm(props) {
 				</Form.Control>
 			</Form.Group>
 
-			<Button variant="primary" type="submit">
+			<Button variant="primary" type="submit" onClick={props.onClick}>
 				Submit
 			</Button>
 		</Form>
