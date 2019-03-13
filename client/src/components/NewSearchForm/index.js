@@ -1,19 +1,21 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-// import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button';
+import CityAutoCorrect from '../Autocomplete';
+const cityList = require("../../resources/index");
 
-function NewSearchForm(props) {
-    
-    return (
-        <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Search</Form.Label>
-                <Form.Control type="text" placeholder="search" />
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>Example select</Form.Label>
-                <Form.Control as="select">
-                <option>Alabama</option>
+function ReportSearchForm(props) {
+	return (
+		<Form>
+			{/* <Form.Group controlId="exampleForm.ControlInput1">
+				<Form.Label>Search</Form.Label>
+				<Form.Control name="city" onChange={props.onChange} type="text" placeholder="search" />
+			</Form.Group> */}
+			<CityAutoCorrect options={cityList} />
+			<Form.Group controlId="searchForm.StateSelect">
+				<Form.Label>Select State to search by State</Form.Label>
+				<Form.Control name="state" onChange={props.onChange} as="select">
+					<option>Alabama</option>
 					<option>Alaska</option>
 					<option>Arizona</option>
 					<option>Arkansas</option>
@@ -63,12 +65,13 @@ function NewSearchForm(props) {
 					<option>West Virginia</option>
 					<option>Wisconsin</option>
 					<option>Wyoming</option>
-                </Form.Control>
-            </Form.Group>
-        </Form>
-
-
-    );
+				</Form.Control>
+			</Form.Group>
+			<Button onClick={props.onClick} variant="primary" type="submit">
+				Submit
+		</Button>
+		</Form>
+	);
 }
 
-export default NewSearchForm;
+export default ReportSearchForm;
