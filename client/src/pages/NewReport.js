@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NewReportForm from "../components/NewReportForm";
 import Navbar from "../components/Navigation";
+import API from "../utils/API";
 
 class NewReport extends Component {
 	state = {
@@ -20,14 +21,16 @@ class NewReport extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-		
+		API.reports.createReport(this.state)
+			.then(res => res.json(res))
+			.catch(err => console.log(err));
 	}
 
 	render() {
 		return (
 			<div>
 				<Navbar />
-				<NewReportForm 
+				<NewReportForm
 					onChange={this.handleInputChange}
 					onClick={this.handleFormSubmit}
 				/>
