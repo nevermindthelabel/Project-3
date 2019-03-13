@@ -13,7 +13,7 @@ function NewUserForm(props) {
             <input type="password" name="password" value={props.value} onChange={props.onChange} />
       </label>
 
-      <button variant="primary" size="sm">
+      <button onClick={props.onClick} variant="primary" size="sm">
         Submit
           </button>
     </form>
