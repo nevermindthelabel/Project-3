@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
-import Welcome from "../components/WelcomePage";
+import NewUserForm from "../components/NewUserForm";
 
-class Home extends Component {
+class NewUser extends Component {
 	state = {}
 
 	//functions n stuff
@@ -11,10 +11,10 @@ class Home extends Component {
 		return (
 			<div>
 				<Navigation />
-				<Welcome />
+				<NewUserForm />
 			</div>
 		)
 	}
 }
 
-export default Home;
+export default NewUser;

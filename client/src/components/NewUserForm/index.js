@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function NewUserForm(props) {
+function NewUserForm(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <label>
@@ -21,3 +21,5 @@ export function NewUserForm(props) {
     </form>
   );
 }
+
+export default NewUserForm;
