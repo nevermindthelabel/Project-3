@@ -21,24 +21,16 @@ class NewReport extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-<<<<<<< Updated upstream
 		API.reports.createReport(this.state)
 			.then(res => res.json(res))
 			.catch(err => console.log(err));
-=======
-		
->>>>>>> Stashed changes
 	}
 
 	render() {
 		return (
 			<div>
 				<Navbar />
-<<<<<<< Updated upstream
 				<NewReportForm
-=======
-				<NewReportForm 
->>>>>>> Stashed changes
 					onChange={this.handleInputChange}
 					onClick={this.handleFormSubmit}
 				/>
