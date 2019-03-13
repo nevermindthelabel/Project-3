@@ -1,17 +1,33 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import NewUserForm from "../components/NewUserForm";
+import API from "../utils/API";
 
 class NewUser extends Component {
-	state = {}
+	state = {
+		userName: "",
+		password: ""
+	}
 
-	//functions n stuff
+	handleInputChange = event => {
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
+		});
+	};
+
+	handleFormSubmit = event => {
+		event.preventDefault();
+		API.users.createUser(this.state)
+			.then(res => res.json(res))
+			.catch(err => console.log(err));
+	}
 
 	render() {
 		return (
 			<div>
 				<Navigation />
-				<NewUserForm />
+				<NewUserForm onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
 			</div>
 		)
 	}
