@@ -21,10 +21,10 @@ export default class Navigation extends React.Component {
                     <Nav.Link href="#Search">Search</Nav.Link>
                     <Nav.Link as="strong"><Link to={"/new-report"}><strong>New Report</strong></Link></Nav.Link>
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
-                    <nav>
+                    <Nav>
                         <Button variant="Login" onClick={this.handleLoginClick}>Login</Button>
                         <Button variant="Logout">Logout</Button>
-                    </nav>
+                    </Nav>
                 </Navbar.Collapse>
                 <LoginDialog ref={this.loginDialog} />
             </Navbar>
