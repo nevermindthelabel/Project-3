@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NewReportForm from "../components/NewReportForm";
+import Navbar from "../components/Navigation";
 
 class NewReport extends Component {
 	state = {
@@ -8,7 +9,10 @@ class NewReport extends Component {
 
 	render() {
 		return (
-			<NewReportForm /> 
+			<div>
+				<Navbar />
+				<NewReportForm />
+			</div>
 		)
 	}
 }
