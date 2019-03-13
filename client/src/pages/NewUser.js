@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import NewUserForm from "../components/NewUserForm";
+<<<<<<< Updated upstream
 import API from "../utils/API";
 
 class NewUser extends Component {
@@ -22,12 +23,23 @@ class NewUser extends Component {
 			.then(res => res.json(res))
 			.catch(err => console.log(err));
 	}
+=======
+
+class NewUser extends Component {
+	state = {}
+
+	//functions n stuff
+>>>>>>> Stashed changes
 
 	render() {
 		return (
 			<div>
 				<Navigation />
+<<<<<<< Updated upstream
 				<NewUserForm onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
+=======
+				<NewUserForm />
+>>>>>>> Stashed changes
 			</div>
 		)
 	}
