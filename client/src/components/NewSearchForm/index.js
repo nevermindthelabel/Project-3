@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-// import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button';
 
 function NewSearchForm(props) {
     
@@ -67,6 +67,9 @@ function NewSearchForm(props) {
             </Form.Group>
         </Form>
 
+		<Button variant="primary" type="submit">
+			Submit
+		</Button>
 
     );
 }
