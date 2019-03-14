@@ -5,10 +5,6 @@ import { Nav, Button, Navbar } from 'react-bootstrap';
 
 
 export default class Navigation extends React.Component {
-    loginDialog=React.createRef()
-    handleLoginClick=()=> {
-        this.loginDialog.current.show()
-    }
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -25,7 +21,6 @@ export default class Navigation extends React.Component {
                         <Button variant="Logout">Logout</Button>
                     </nav>
                 </Navbar.Collapse>
-                <LoginDialog ref={this.loginDialog} />
             </Navbar >
         )
     }

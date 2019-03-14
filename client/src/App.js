@@ -1,24 +1,44 @@
-import React from "react";
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import NewReport from "./pages/NewReport";
+import NewUser from "./pages/NewUser";
+import Login from './components/Login/index';
+// import './App.css';
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
+const Logout = () => (
+  <Logout />
+);
+
+const Login = () => (
+  <Login />
+);
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Route path="/login" component={Login} /> 
+          <Route exact path="/" component={Logout} />
+        </div>
+      </Router>
+    );
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
         <Switch>
-          <Route exact path="/" component={Books} />
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
-          <Route component={NoMatch} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/new-report" component={NewReport} />
+          <Route exact path="/new-user" component={NewUser} />
         </Switch>
-      </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
 export default App;
