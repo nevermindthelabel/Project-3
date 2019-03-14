@@ -25,11 +25,13 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "if-env": "^1.0.4",
+    "list-of-us-cities": "^1.0.1",
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.5",
+    "react-bootstrap-typeahead": "^3.4.1",
     "react-dom": "^16.8.4",
     "react-scripts": "^2.1.8",
     "sequelize": "^4.41.2"
