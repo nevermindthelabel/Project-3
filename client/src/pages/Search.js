@@ -21,9 +21,17 @@ class Search extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		if (this.state.city !== "") {
-			API.reports.searchCity(this.state.city);
+			API.reports.searchCity(this.state.city)
+				.then(res => this.setState({
+					results: res
+				}))
+				.catch(err => console.log(err));
 		} else if (this.state.state !== "") {
 			API.reports.searchState(this.state.state)
+				.then(res => this.setState({
+					results: res
+				}))
+				.catch(err => console.log(err))
 		}
 	}
 
@@ -43,7 +51,6 @@ class Search extends Component {
 					onChange={this.handleInputChange}
 				/>
 				{Container}
-
 			</div>
 		)
 	}
