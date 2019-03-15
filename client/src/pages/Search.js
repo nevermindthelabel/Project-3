@@ -36,11 +36,12 @@ class Search extends Component {
 	}
 
 	render() {
-		const results = this.state.results;
 		let Container;
 
-		if (results.length) {
-			Container = <p>Hellp</p>
+		if (this.state.results.length) {
+			Container = <div>
+				<p>Hello</p>
+			</div>
 		}
 
 		return (
