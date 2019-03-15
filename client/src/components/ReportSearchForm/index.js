@@ -7,11 +7,7 @@ const cityList = require("../../resources/index");
 function ReportSearchForm(props) {
 	return (
 		<Form>
-			{/* <Form.Group controlId="exampleForm.ControlInput1">
-				<Form.Label>Search</Form.Label>
-				<Form.Control name="city" onChange={props.onChange} type="text" placeholder="search" />
-			</Form.Group> */}
-			<CityAutoCorrect options={cityList} />
+			<CityAutoCorrect name="city" options={cityList} />
 			<Form.Group controlId="searchForm.StateSelect">
 				<Form.Label>Select State to search by State</Form.Label>
 				<Form.Control name="state" onChange={props.onChange} as="select">

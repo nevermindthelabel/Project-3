@@ -13,6 +13,7 @@ function CityAutoCorrect(props) {
 					name="city"
 					options={props.options}
 					placeholder="Choose a city..."
+					onChange={props.onChange}
 				/>
 			</Form.Group>
 		</div>

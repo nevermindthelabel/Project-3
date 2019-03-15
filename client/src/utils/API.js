@@ -7,10 +7,10 @@ export default {
 			return axios.get("/api/reports");
 		},
 		searchState: function (state) {
-			return axios.get("/api/" + state);
+			return axios.get("/api/reports/state-search/" + state);
 		},
 		searchCity: function (city) {
-			return axios.get("/api/" + city);
+			return axios.get("/api/reports/city-search/" + city);
 		},
 		createReport: function (reportData) {
 			return axios.post("/api/reports", reportData);
