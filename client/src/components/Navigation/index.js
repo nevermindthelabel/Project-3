@@ -13,7 +13,7 @@ export default class Navigation extends React.Component {
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="#home">TrafficMon</Navbar.Brand>
+                <Navbar.Brand>TrafficMon</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav.Link as="strong"><Link to={"/"}><strong>Home</strong></Link></Nav.Link>

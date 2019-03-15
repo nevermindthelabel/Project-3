@@ -4,7 +4,7 @@ import React from 'react';
 function WelcomePage(props) {
 
     return (
-        <div class="container backgroundColor">
+        <div className="container backgroundColor">
             <h1>Trafficmon</h1>
             <p>Welcome to TrafficMon, the online traffic monitoring database!</p>
             <p>Here, Users can report and view reports on heavy traffic, accidents, road work, police radar units, and
