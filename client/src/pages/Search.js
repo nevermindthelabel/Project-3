@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import ReportSearchForm from "../components/ReportSearchForm";
+import { Table, tHead, tBody } from "../components/SearchResults";
 import API from "../utils/API";
 
 class Search extends Component {
 	state = {
 		city: "",
-		state: ""
+		state: "",
+		results: []
 	}
 
 	handleInputChange = event => {
@@ -18,19 +20,30 @@ class Search extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-		API.reports.createReport(this.state)
-			.then(res => res.json(res))
-			.catch(err => console.log(err));
+		if (this.state.city !== "") {
+			API.reports.searchCity(this.state.city);
+		} else if (this.state.state !== "") {
+			API.reports.searchState(this.state.state)
+		}
 	}
 
 	render() {
-		return(
+		const results = this.state.results;
+		let Container;
+
+		if (results.length) {
+			Container = <p>Hellp</p>
+		}
+
+		return (
 			<div>
 				<Navigation />
-				<ReportSearchForm 
+				<ReportSearchForm
 					onClick={this.handleFormSubmit}
 					onChange={this.handleInputChange}
 				/>
+				{Container}
+
 			</div>
 		)
 	}

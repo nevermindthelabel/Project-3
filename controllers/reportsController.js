@@ -17,6 +17,26 @@ module.exports = {
 			.then(dbData => res.json(dbData))
 			.catch(err => res.status(422).json(err));
 	},
+	searchState: function (req, res) {
+		db.Reports
+			.findAll({
+				where: {
+					state: req.params.state
+				}
+			})
+			.then(dbData => res.json(dbData))
+			.catch(err => res.status(422).json(err));
+	},
+	searchCity: function (req, res) {
+		db.Reports
+			.findAll({
+				where: {
+					city: req.params.city
+				}
+			})
+			.then(dbData => res.json(dbData))
+			.catch(err => res.status(422).json(err));
+	},
 	create: function (req, res) {
 		var newReport = req.body;
 		newReport.UserId = req.user.id;
