@@ -6,12 +6,20 @@ export default {
 		getReports: function () {
 			return axios.get("/api/reports");
 		},
-		createReport: function () {
+		searchState: function (state) {
+			return axios.get("/api/reports/state-search/" + state);
+		},
+		searchCity: function (city) {
+			return axios.get("/api/reports/city-search/" + city);
+		},
+		createReport: function (reportData) {
 			return axios.post("/api/reports", reportData);
 		}
 	},
 	users: {
-
+		createUser: function (userData) {
+			return axios.post("/api/users", userData);
+		}
 	}
 
 }

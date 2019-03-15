@@ -12,4 +12,12 @@ router.route("/:id")
 	.put(reportsController.update)
 	.delete(reportsController.remove);
 
+//Matches with "/api/reports/:state"
+router.route("/state-search/:state")
+	.get(reportsController.searchState);
+
+//Matches with "/api/reports/:city"
+router.route("/city-search/:city")
+	.get(reportsController.searchCity);
+
 module.exports = router

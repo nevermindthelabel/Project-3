@@ -33,11 +33,11 @@ app.use(passport.session());
 
 //DB sync options
 let syncOptions = {
-  force: false
+  force: true
 };
 
 //If app is in dev state, force model sync
-if (process.env.NODE_ENV === "dev") {
+if (process.env.NODE_ENV !== "production") {
   syncOptions.force = true;
 }
 

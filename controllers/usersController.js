@@ -2,10 +2,9 @@ const db = require("../models");
 
 module.exports = {
 	create: function (req, res) {
-		var newReport = req.body;
-		newReport.UserId = req.user.id;
+		var newUser = req.body;
 		db.Users
-			.create(newReport)
+			.create(newUser)
 			.then(dbData => res.json(dbData))
 			.catch(err => res.status(422).json(err));
 	},

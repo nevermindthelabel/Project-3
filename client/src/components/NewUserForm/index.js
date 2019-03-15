@@ -1,23 +1,23 @@
 import React from 'react';
 
-export function NewUserForm(props) {
+function NewUserForm(props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <label>
         User Name:
-            <input type="text" value={props.value} onChange={props.handleChange} />
-      </label>+
-      <input type="submit" value="Submit" />
+            <input type="text" name="userName" value={props.value} onChange={props.onChange} />
+      </label>
 
       <label>
         Password:
-            <input type="password" value={props.value} onChange={props.handleChange} />
+            <input type="password" name="password" value={props.value} onChange={props.onChange} />
       </label>
-      <input type="submit" value="Submit" />
 
-      <button variant="primary" size="sm">
+      <button onClick={props.onClick} variant="primary" size="sm">
         Submit
           </button>
     </form>
   );
 }
+
+export default NewUserForm;

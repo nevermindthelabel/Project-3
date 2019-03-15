@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import NewReportForm from "../components/NewReportForm";
-import Navbar from "../components/Navigation";
+import Navigation from "../components/Navigation";
+import NewUserForm from "../components/NewUserForm";
 import API from "../utils/API";
 
-class NewReport extends Component {
+class NewUser extends Component {
 	state = {
-		type: "",
-		description: "",
-		location: "",
-		city: "",
-		state: ""
-	};
+		userName: "",
+		password: ""
+	}
 
 	handleInputChange = event => {
 		const { name, value } = event.target;
@@ -21,7 +18,7 @@ class NewReport extends Component {
 
 	handleFormSubmit = event => {
 		event.preventDefault();
-		API.reports.createReport(this.state)
+		API.users.createUser(this.state)
 			.then(res => res.json(res))
 			.catch(err => console.log(err));
 	}
@@ -29,14 +26,11 @@ class NewReport extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar />
-				<NewReportForm
-					onChange={this.handleInputChange}
-					onClick={this.handleFormSubmit}
-				/>
+				<Navigation />
+				<NewUserForm onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
 			</div>
 		)
 	}
 }
 
-export default NewReport;
+export default NewUser;

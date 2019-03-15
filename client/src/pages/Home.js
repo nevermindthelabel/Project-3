@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
+import Welcome from "../components/WelcomePage";
 
 class Home extends Component {
 	state = {}
@@ -8,7 +9,10 @@ class Home extends Component {
 
 	render() {
 		return (
-			<Navigation />
+			<div>
+				<Navigation />
+				<Welcome />
+			</div>
 		)
 	}
 }
