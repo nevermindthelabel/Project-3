@@ -13,8 +13,9 @@ router.route("/:id")
 	.delete(usersController.remove);
 
 //Matches with "/api/users/current-user"
-router.route("/current-user", isAuthenticated)
-	.get((req, res) => {
+router.route("/current-user")
+	.get(isAuthenticated, (req, res) => {
+		console.log("hello");
 		console.log(req.user);
 		res.json(req.user);
 	});

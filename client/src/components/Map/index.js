@@ -74,7 +74,7 @@ export default class TrafficMonMap extends Component {
       <div className="map">
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: "api_key"
+            key: "AIzaSyDRG4JgxJL_uGmz65iH88bayDb_4hVd93s"
           }}
           layerTypes={["TrafficLayer"]}
           center={this.state.center}
