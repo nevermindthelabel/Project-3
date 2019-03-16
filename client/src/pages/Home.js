@@ -6,8 +6,6 @@ import TrafficMonMap from '../components/Map'
 class Home extends Component {
 	state = {}
 
-	//functions n stuff
-
 	render() {
 		return (
 			<div>
