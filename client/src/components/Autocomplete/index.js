@@ -2,6 +2,7 @@ import React from "react";
 import Form from 'react-bootstrap/Form';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
+const cityList = require("../../resources/index");
 
 function CityAutoCorrect(props) {
 	return (
@@ -11,7 +12,7 @@ function CityAutoCorrect(props) {
 				<Typeahead
 					labelKey="city"
 					name="city"
-					options={props.options}
+					options={cityList}
 					placeholder="Choose a city..."
 					onChange={props.onChange}
 				/>
