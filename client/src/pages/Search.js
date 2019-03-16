@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import ReportSearchForm from "../components/ReportSearchForm";
-import { Table, tHead, tBody } from "../components/SearchResults";
+import { Table, THead, TBody, TRow } from "../components/SearchResults";
 import API from "../utils/API";
 
 class Search extends Component {
@@ -29,18 +29,32 @@ class Search extends Component {
 		} else if (this.state.state !== "") {
 			API.reports.searchState(this.state.state)
 				.then(res => this.setState({
-					results: res
+					results: res.data
 				}))
 				.catch(err => console.log(err))
 		}
 	}
 
 	render() {
-		const results = this.state.results;
 		let Container;
 
-		if (results.length) {
-			Container = <p>Hellp</p>
+		if (this.state.results.length) {
+			console.log(this.state.results);
+			Container = <Table>
+				<THead />
+				<TBody>
+					{this.state.results.map(report => (
+						<TRow
+							key={report.id}
+							type={report.type}
+							description={report.description}
+							location={report.location}
+							city={report.city}
+							state={report.state}
+						/>
+					))}
+				</TBody>
+			</Table>
 		}
 
 		return (

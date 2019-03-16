@@ -22,7 +22,7 @@ class NewReport extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		API.reports.createReport(this.state)
-			.then(res => res.json(res))
+			.then(res => console.log(res))
 			.catch(err => console.log(err));
 	}
 

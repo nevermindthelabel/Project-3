@@ -33,7 +33,7 @@ app.use(passport.session());
 
 //DB sync options
 let syncOptions = {
-  force: true
+  force: false
 };
 
 //If app is in dev state, force model sync

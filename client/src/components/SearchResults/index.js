@@ -8,7 +8,7 @@ export function Table(props) {
 	);
 };
 
-export function tHead(props) {
+export function THead(props) {
 	return (
 		<thead className="thead-dark">
 			<tr>
@@ -22,9 +22,16 @@ export function tHead(props) {
 	);
 };
 
-export function tBody(props) {
+export function TBody(props) {
 	return (
 		<tbody>
+			{props.children}
+		</tbody>
+	);
+};
+
+export function TRow(props) {
+	return (
 			<tr>
 				<td>{props.type}</td>
 				<td>{props.description}</td>
@@ -32,6 +39,5 @@ export function tBody(props) {
 				<td>{props.city}</td>
 				<td>{props.state}</td>
 			</tr>
-		</tbody>
 	);
 };
