@@ -6,10 +6,6 @@ import { Link } from "react-router-dom";
 
 
 export default class Navigation extends React.Component {
-    loginDialog = React.createRef()
-    handleLoginClick = () => {
-        this.loginDialog.current.show()
-    }
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -22,11 +18,10 @@ export default class Navigation extends React.Component {
                     <Nav.Link as="strong"><Link to={"/new-report"}><strong>New Report</strong></Link></Nav.Link>
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
                     <Nav>
-                        <Button variant="Login" onClick={this.handleLoginClick}>Login</Button>
-                        <Button variant="Logout">Logout</Button>
+                        <Button variant="Login"><Link to={"/login"}><strong>Login</strong></Link></Button>
+                        <Button variant="Logout"><Link to={"/logout"}><strong>Logout</strong></Link></Button>
                     </Nav>
                 </Navbar.Collapse>
-                <LoginDialog ref={this.loginDialog} />
             </Navbar>
         )
     }
