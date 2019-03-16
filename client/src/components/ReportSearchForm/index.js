@@ -1,13 +1,13 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import CityAutoCorrect from '../Autocomplete';
+import TypeAhead from '../TypeAhead';
 const cityList = require("../../resources/index");
 
 function ReportSearchForm(props) {
 	return (
 		<Form>
-			<CityAutoCorrect name="city" options={cityList} />
+			<TypeAhead name="city" options={cityList} onInputChange={props.onChange} />
 			<Form.Group controlId="searchForm.StateSelect">
 				<Form.Label>Select State to search by State</Form.Label>
 				<Form.Control name="state" onChange={props.onChange} as="select">
