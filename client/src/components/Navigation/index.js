@@ -17,8 +17,8 @@ export default class Navigation extends React.Component {
                     <Nav.Link href="#New Report">New Report</Nav.Link>
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
                     <nav>
-                        <Button variant="Login" onClick={this.handleLoginClick}>Login</Button>
-                        <Button variant="Logout">Logout</Button>
+                        <Button variant="Login"><link to="/Login">Login</link></Button>
+                        <Button variant="Logout"><link to="/">Logout</link></Button>
                     </nav>
                 </Navbar.Collapse>
             </Navbar >
