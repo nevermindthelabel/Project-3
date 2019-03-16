@@ -17,10 +17,10 @@ export default class Navigation extends React.Component {
                     <Nav.Link as="strong"><Link to={"/search"}><strong>Search</strong></Link></Nav.Link>
                     <Nav.Link as="strong"><Link to={"/new-report"}><strong>New Report</strong></Link></Nav.Link>
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
-                    <nav>
+                    <Nav>
                         <Button variant="Login"><link to="/Login">Login</link></Button>
                         <Button variant="Logout"><link to="/">Logout</link></Button>
-                    </nav>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar >
         )
