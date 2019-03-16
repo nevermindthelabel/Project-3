@@ -5,7 +5,7 @@ function LoginForm(props) {
 		<form onSubmit={props.handleSubmit}>
 			<label>
 				User Name:
-            <input type="text" name="userName" value={props.value} onChange={props.onChange} />
+            <input type="text" name="username" value={props.value} onChange={props.onChange} />
 			</label>
 
 			<label>
