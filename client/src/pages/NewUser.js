@@ -19,7 +19,7 @@ class NewUser extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		API.users.createUser(this.state)
-			.then(res => res.json(res))
+			.then(res => console.log(res.data))
 			.catch(err => console.log(err));
 	}
 

@@ -8,9 +8,9 @@ module.exports = {
 	},
 	findById: function (req, res) {
 		console.log("test")
-		db.Reports.findOne({
+		db.Reports.findAll({
 				where: {
-					id: req.params.id
+					UserId: req.params.id
 				}
 			})
 			.then(dbData => res.json(dbData))

@@ -5,19 +5,21 @@ import TrafficMonMap from '../components/Map';
 import API from "../utils/API";
 import AppContext from '../AppContext';
 import CustomPage from "../components/CustomPage";
+import { Table, THead, TBody, TRow } from "../components/SearchResults";
 
 let customPage;
+let customTable;
 
 class Home extends Component {
 	static contextType = AppContext
 
 	state = {
-		user: {}
+		user: {},
+		userReports: []
 	}
 
 	componentDidMount() {
 		this.getUser();
-		// this.checkUserLogged();
 	}
 
 	getUser = () => {
@@ -34,6 +36,7 @@ class Home extends Component {
 							}
 						})
 						console.log(this.context.user.username);
+						this.getUserReports();
 					}
 				}
 			).catch(err => console.log(err));
@@ -41,10 +44,50 @@ class Home extends Component {
 
 	checkUserLogged = () => {
 		if (this.context.user.anonymous !== true) {
-			customPage = <CustomPage
-				username={this.context.user.username}
-			/>
-		}
+			if (this.state.userReports.length) {
+				customTable = (
+					<Table>
+						<THead />
+						<TBody>
+							{this.state.userReports.map(report => (
+								<TRow
+									key={report.id}
+									type={report.type}
+									description={report.description}
+									location={report.location}
+									city={report.city}
+									state={report.state}
+								/>
+							))}
+						</TBody>
+					</Table>
+				)
+			};
+
+			customPage = (
+				<div>
+					<CustomPage
+						username={this.context.user.username}
+					/>
+					{customTable}
+				</div>
+			);
+		};
+	};
+
+	getUserReports = () => {
+		let userId = this.state.user.id
+		API.reports.getReportById(userId)
+			.then(res => {
+				if (res.data) {
+					console.log(res.data);
+					this.setState({
+						userReports: res.data
+					});
+				} else {
+					console.log("No reports");
+				}
+			})
 	}
 
 
