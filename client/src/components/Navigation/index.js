@@ -1,6 +1,5 @@
 import React from "react";
 import "./Nav.css";
-import LoginDialog from '../LoginDialog'
 import { Nav, Button, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
