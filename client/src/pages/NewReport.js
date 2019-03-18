@@ -3,7 +3,9 @@ import NewReportForm from "../components/NewReportForm";
 import Navbar from "../components/Navigation";
 import API from "../utils/API";
 import AppContext from '../AppContext';
+import NotLoggedIn from "../components/NotLoggedIn";
 
+let reportPage;
 
 class NewReport extends Component {
 	static contextType = AppContext
@@ -14,7 +16,7 @@ class NewReport extends Component {
 		location: "",
 		city: "",
 		state: "",
-		UserId: this.context.user.id,
+		UserId: this.context.user.id
 	};
 
 	handleInputChange = event => {
@@ -31,14 +33,31 @@ class NewReport extends Component {
 			.catch(err => console.log(err));
 	}
 
+	checkLoggedIn = () => {
+		if (this.context.user.anonymous !== true) {
+			reportPage = (
+				<div>
+					<NewReportForm
+						onChange={this.handleInputChange}
+						onClick={this.handleFormSubmit}
+					/>
+				</div>
+			)
+		} else {
+			reportPage = (
+				<div>
+					<NotLoggedIn />
+				</div>
+			)
+		}
+	}
+
 	render() {
+		this.checkLoggedIn();
 		return (
 			<div>
 				<Navbar />
-				<NewReportForm
-					onChange={this.handleInputChange}
-					onClick={this.handleFormSubmit}
-				/>
+				{reportPage}
 			</div>
 		)
 	}
