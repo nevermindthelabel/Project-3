@@ -2,9 +2,14 @@ import React from "react";
 import "./Nav.css";
 import { Nav, Button, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
+import API from "../../utils/API";
 
 export default class Navigation extends React.Component {
+    logoutClick = event => {
+        event.preventDefault();
+        API.users.logout();
+    }
+
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -18,7 +23,7 @@ export default class Navigation extends React.Component {
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
                     <Nav>
                         <Button variant="Login"><Link to={"/login"}><strong>Login</strong></Link></Button>
-                        <Button variant="Logout"><Link to={"/logout"}><strong>Logout</strong></Link></Button>
+                        <Button variant="Logout" onClick={this.logoutClick}><strong>Logout</strong></Button>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

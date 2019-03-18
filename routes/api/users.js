@@ -14,11 +14,12 @@ router.route("/:id")
 
 //Matches with "/api/users/current-user"
 router.get("/current-user", isAuthenticated, (req, res) => {
-		console.log(req.user);
-		res.json({
-			username: req.user.userName,
-			id: req.user.id});
+	console.log(req.user);
+	res.json({
+		username: req.user.userName,
+		id: req.user.id
 	});
+});
 
 //Matches with "/api/users/login"
 router.route("/login")
@@ -28,5 +29,11 @@ router.route("/login")
 		} else {
 			res.status(401);
 		}
-	})
+	});
+
+router.get("/logout", function (req, res) {
+	req.logout();
+	res.redirect("/");
+});
+
 module.exports = router
