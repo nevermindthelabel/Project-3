@@ -13,8 +13,7 @@ export default class Navigation extends React.Component {
         API.users.logout();
     }
     getDateTime = () => {
-        dateAndTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-        console.log(dateAndTime);
+        dateAndTime = moment().format('MMMM Do YYYY, h:mm a');
     }
 
     render() {
