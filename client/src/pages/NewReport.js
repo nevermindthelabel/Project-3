@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import NewReportForm from "../components/NewReportForm";
 import Navbar from "../components/Navigation";
 import API from "../utils/API";
+import AppContext from '../AppContext';
+
 
 class NewReport extends Component {
+	static contextType = AppContext
+
 	state = {
 		type: "",
 		description: "",
 		location: "",
 		city: "",
-		state: ""
+		state: "",
+		UserId: this.context.user.id,
 	};
 
 	handleInputChange = event => {

@@ -3,6 +3,7 @@ import LoginForm from "../components/LoginForm";
 import Navigation from "../components/Navigation";
 import API from "../utils/API";
 import AppContext from '../AppContext';
+//import  { Redirect } from 'react-router-dom'
 
 class Login extends Component {
 	static contextType = AppContext
@@ -22,7 +23,12 @@ class Login extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		API.users.login(this.state)
-			.then(res => console.log(res))
+			.then(res => {
+				console.log(res.data)
+				if (res.data.userName) {
+					this.props.history.push("/");
+				}
+			})
 			.catch(err => console.log(err));
 		// if the user is successfully logged in:
 		//   this.context.setUser(user)
