@@ -8,7 +8,7 @@ function CityAutoCorrect(props) {
 	return (
 		<div>
 			<Form.Group controlId="searchForm.CitySelect">
-				<Form.Label>Enter City to search by City</Form.Label>
+				<Form.Label><h2>Enter City to search by City</h2></Form.Label>
 				<Typeahead
 					labelKey="city"
 					name="city"
