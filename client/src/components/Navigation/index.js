@@ -29,9 +29,9 @@ export default class Navigation extends React.Component {
                     <Nav.Link as="strong"><Link to={"/new-report"}><strong>New Report</strong></Link></Nav.Link>
                     <Nav.Link href="#View Own Reports">View Own Reports</Nav.Link>
                     <Nav>
-                        <Button variant="Login"><Link to={"/login"}><strong>Login</strong></Link></Button>
+                <Button className="right btn btn-primary" variant="Login"><Link to={"/login"}><strong>Login</strong></Link></Button>
                         <div class="divider"/>
-                        <Button variant="Logout" onClick={this.logoutClick}><strong>Logout</strong></Button>
+                <Button className="right btn btn-danger" variant="Logout" onClick={this.logoutClick}><strong>Logout</strong></Button>
                     </Nav>
                     <Nav.Link as="strong"><strong>{dateAndTime}</strong></Nav.Link>
                 </Navbar.Collapse>
@@ -39,4 +39,3 @@ export default class Navigation extends React.Component {
         )
     }
 }
-
