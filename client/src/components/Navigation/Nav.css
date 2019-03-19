@@ -31,3 +31,9 @@
     right: 20px;
     max-width: 250px;
   }
+
+  .divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
