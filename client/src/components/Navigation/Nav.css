@@ -1,39 +1,61 @@
 /* Style the navbar */
 #navbar {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  /* Navbar links */
-  #navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-  }
-  
-  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
-    position: fixed;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.navbar-header form {
+  position: absolute;
+  right: 20px;
+  max-width: 250px;
+}
+
+#responsive-navbar-nav {
+  display: flex;
+  flex-shrink: 1;
+  justify-content: flex-start;
+}
+
+.navbar-nav {
+  margin-right: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+/* position: fixed;
     top: 0;
     width: 100%;
   }
-  
-  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-  .sticky + .content {
-    padding-top: 60px;
-  }
-  
-  .navbar-header form {
-    position: absolute;
-    right: 20px;
-    max-width: 250px;
-  }
+   */
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
 
-  .divider{
-    width:5px;
-    height:auto;
-    display:inline-block;
+.divider {
+  width: 5px;
+  height: auto;
+  display: inline-block;
 }

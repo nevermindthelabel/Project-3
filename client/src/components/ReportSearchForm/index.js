@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import TypeAhead from '../TypeAhead';
+import './style.css'
 const cityList = require("../../resources/index");
 
 function ReportSearchForm(props) {
@@ -63,7 +64,7 @@ function ReportSearchForm(props) {
 					<option>Wyoming</option>
 				</Form.Control>
 			</Form.Group>
-			<Button onClick={props.onClick} variant="primary" type="submit">
+      <Button className="float-right" onClick={props.onClick} variant="primary" type="submit">
 				Submit
 		</Button>
 		</Form>
