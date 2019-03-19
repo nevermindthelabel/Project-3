@@ -4,15 +4,6 @@ import Navbar from "../components/Navigation";
 import API from "../utils/API";
 import Footer from "../components/Footer";
 // import '../index.css'
-
-class NewReport extends Component {
-  state = {
-    type: "",
-    description: "",
-    location: "",
-    city: "",
-    state: ""
-  };
 import AppContext from '../AppContext';
 import NotLoggedIn from "../components/NotLoggedIn";
 
@@ -30,33 +21,33 @@ class NewReport extends Component {
 		UserId: this.context.user.id
 	};
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+	handleInputChange = event => {
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
+		});
+	};
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    API.reports
-      .createReport(this.state)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  };
+	handleFormSubmit = event => {
+		event.preventDefault();
+		API.reports
+			.createReport(this.state)
+			.then(res => console.log(res))
+			.catch(err => console.log(err));
+	};
 
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <NewReportForm
-          onChange={this.handleInputChange}
-          onClick={this.handleFormSubmit}
-        />
-        <Footer />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Navbar />
+				<NewReportForm
+					onChange={this.handleInputChange}
+					onClick={this.handleFormSubmit}
+				/>
+				<Footer />
+			</div>
+		);
+	}
 	checkLoggedIn = () => {
 		if (this.context.user.anonymous !== true) {
 			reportPage = (
