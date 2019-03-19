@@ -28,11 +28,11 @@ export default class Navigation extends React.Component {
                     <Nav.Link as="strong"><Link to={"/search"}><strong>Search</strong></Link></Nav.Link>
                     <Nav.Link as="strong"><Link to={"/new-report"}><strong>New Report</strong></Link></Nav.Link>
                     <Nav>
-                <Button className="right btn btn-primary" variant="Login"><Link to={"/login"}><strong>Login</strong></Link></Button>
+                <Button className="right btn btn-primary" variant="Login"><Link to={"/login"}><strong className="text-white">Login</strong></Link></Button>
                         <div class="divider"/>
                 <Button className="right btn btn-danger" variant="Logout" onClick={this.logoutClick}><strong>Logout</strong></Button>
                     </Nav>
-                    <Nav.Link as="strong"><strong>{dateAndTime}</strong></Nav.Link>
+                    <Nav.Link className="text-primary" as="strong"><strong>{dateAndTime}</strong></Nav.Link>
                 </Navbar.Collapse>
             </Navbar>
         )
