@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import ReportSearchForm from "../components/ReportSearchForm";
 import { Table, THead, TBody, TRow } from "../components/SearchResults";
 import API from "../utils/API";
+import Footer from '../components/Footer';
 
 class Search extends Component {
 	state = {
@@ -65,6 +66,7 @@ class Search extends Component {
 					onChange={this.handleInputChange}
 				/>
 				{Container}
+				<Footer />
 			</div>
 		)
 	}

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import NewUserForm from "../components/NewUserForm";
+import Footer from '../components/Footer'
 import API from "../utils/API";
+import '../index.css'
 
 class NewUser extends Component {
 	state = {
@@ -28,6 +30,7 @@ class NewUser extends Component {
 			<div>
 				<Navigation />
 				<NewUserForm onChange={this.handleInputChange} onClick={this.handleFormSubmit}/>
+				<Footer />
 			</div>
 		)
 	}
