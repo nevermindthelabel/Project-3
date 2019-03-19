@@ -36,18 +36,6 @@ class NewReport extends Component {
 			.catch(err => console.log(err));
 	};
 
-	render() {
-		return (
-			<div>
-				<Navbar />
-				<NewReportForm
-					onChange={this.handleInputChange}
-					onClick={this.handleFormSubmit}
-				/>
-				<Footer />
-			</div>
-		);
-	}
 	checkLoggedIn = () => {
 		if (this.context.user.anonymous !== true) {
 			reportPage = (
@@ -73,6 +61,7 @@ class NewReport extends Component {
 			<div>
 				<Navbar />
 				{reportPage}
+				<Footer />
 			</div>
 		)
 	}
