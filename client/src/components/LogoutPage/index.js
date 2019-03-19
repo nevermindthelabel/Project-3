@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function WelcomePage(props) {
+function LogoutPage(props) {
 
     return (
         <div className="container backgroundColor">
@@ -14,4 +14,4 @@ function WelcomePage(props) {
     )
 }
 
-export default WelcomePage;
+export default LogoutPage;
