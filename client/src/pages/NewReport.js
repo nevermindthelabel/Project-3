@@ -13,6 +13,22 @@ class NewReport extends Component {
     city: "",
     state: ""
   };
+import AppContext from '../AppContext';
+import NotLoggedIn from "../components/NotLoggedIn";
+
+let reportPage;
+
+class NewReport extends Component {
+	static contextType = AppContext
+
+	state = {
+		type: "",
+		description: "",
+		location: "",
+		city: "",
+		state: "",
+		UserId: this.context.user.id
+	};
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -41,6 +57,34 @@ class NewReport extends Component {
       </div>
     );
   }
+	checkLoggedIn = () => {
+		if (this.context.user.anonymous !== true) {
+			reportPage = (
+				<div>
+					<NewReportForm
+						onChange={this.handleInputChange}
+						onClick={this.handleFormSubmit}
+					/>
+				</div>
+			)
+		} else {
+			reportPage = (
+				<div>
+					<NotLoggedIn />
+				</div>
+			)
+		}
+	}
+
+	render() {
+		this.checkLoggedIn();
+		return (
+			<div>
+				<Navbar />
+				{reportPage}
+			</div>
+		)
+	}
 }
 
 export default NewReport;

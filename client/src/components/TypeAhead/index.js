@@ -4,7 +4,7 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 const cityList = require("../../resources/index");
 
-function CityAutoCorrect(props) {
+function TypeAhead(props) {
 	return (
 		<div>
 			<Form.Group controlId="searchForm.CitySelect">
@@ -14,11 +14,11 @@ function CityAutoCorrect(props) {
 					name="city"
 					options={cityList}
 					placeholder="Choose a city..."
-					onChange={props.onChange}
+					onInputChange={props.onChange}
 				/>
 			</Form.Group>
 		</div>
 	);
 }
 
-export default CityAutoCorrect;
+export default TypeAhead;
