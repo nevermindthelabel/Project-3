@@ -19,6 +19,17 @@ class Search extends Component {
 		});
 	};
 
+	handleTypeahead = event => {
+		console.log(event);
+		let selection = event;
+		if (typeof event === "object") {
+			selection = event[0];
+		} 
+		this.setState({
+			city: selection
+		});
+	};
+
 	handleFormSubmit = event => {
 		event.preventDefault();
 		if (this.state.city !== "") {
@@ -63,6 +74,7 @@ class Search extends Component {
 				<Navigation />
 				<ReportSearchForm
 					onClick={this.handleFormSubmit}
+					onTypeaheadChange={this.handleTypeahead}
 					onChange={this.handleInputChange}
 				/>
 				{Container}

@@ -11,7 +11,7 @@ function ReportSearchForm(props) {
 	return (
 		<Jumbotron controlId="jumbotron">
 			<Form>
-				<TypeAhead name="city" options={cityList} onInputChange={props.onChange} />
+				<TypeAhead name="city" options={cityList} onChange={props.onTypeaheadChange} />
 				<Form.Group controlId="searchForm.StateSelect">
 					<Form.Label>Select State to search by State</Form.Label>
 					<Form.Control name="state" onChange={props.onChange} as="select">
