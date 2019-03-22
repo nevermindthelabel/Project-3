@@ -4,6 +4,7 @@ import ReportSearchForm from "../components/ReportSearchForm";
 import { Table, THead, TBody, TRow } from "../components/SearchResults";
 import API from "../utils/API";
 import Footer from '../components/Footer';
+import SearchResultsNo from "../components/SearchResults_No";
 
 class Search extends Component {
 	state = {
@@ -67,6 +68,10 @@ class Search extends Component {
 					))}
 				</TBody>
 			</Table>
+		} else {
+			Container = (
+				<SearchResultsNo />
+			)
 		}
 
 		return (
