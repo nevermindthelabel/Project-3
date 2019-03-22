@@ -14,6 +14,7 @@ function NotLoggedIn(props) {
 					<p>Please login to submit reports</p>
 						<p className="lead">
 							<a className="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+							<div className="divider" />
 							<a className="btn btn-primary btn-lg" href="/new-user" role="button">Create an Account</a>
 						</p>
 				</div>
