@@ -4,6 +4,7 @@ import ReportSearchForm from "../components/ReportSearchForm";
 import { Table, THead, TBody, TRow } from "../components/SearchResults";
 import API from "../utils/API";
 import Footer from '../components/Footer';
+import SearchResultsNo from "../components/SearchResults_No";
 
 class Search extends Component {
 	state = {
@@ -16,6 +17,17 @@ class Search extends Component {
 		const { name, value } = event.target;
 		this.setState({
 			[name]: value
+		});
+	};
+
+	handleTypeahead = event => {
+		console.log(event);
+		let selection = event;
+		if (typeof event === "object") {
+			selection = event[0];
+		} 
+		this.setState({
+			city: selection
 		});
 	};
 
@@ -56,6 +68,10 @@ class Search extends Component {
 					))}
 				</TBody>
 			</Table>
+		} else {
+			Container = (
+				<SearchResultsNo />
+			)
 		}
 
 		return (
@@ -63,6 +79,7 @@ class Search extends Component {
 				<Navigation />
 				<ReportSearchForm
 					onClick={this.handleFormSubmit}
+					onTypeaheadChange={this.handleTypeahead}
 					onChange={this.handleInputChange}
 				/>
 				{Container}
