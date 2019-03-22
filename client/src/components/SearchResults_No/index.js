@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function SearchResults_No(props) {
+function SearchResultsNo(props) {
 
     return (
         <div className="container backgroundColor">
@@ -12,4 +12,4 @@ function SearchResults_No(props) {
     )
 }
 
-export default SearchResults_No;
+export default SearchResultsNo;
