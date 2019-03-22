@@ -6,6 +6,9 @@ export default {
 		getReports: function () {
 			return axios.get("/api/reports");
 		},
+		getReportById: function (id) {
+			return axios.get("/api/reports/" + id);
+		},
 		searchState: function (state) {
 			return axios.get("/api/reports/state-search/" + state);
 		},
@@ -19,6 +22,15 @@ export default {
 	users: {
 		createUser: function (userData) {
 			return axios.post("/api/users", userData);
+		},
+		login: function (userData) {
+			return axios.post("/api/users/login", userData);
+		},
+		logout: function () {
+			return axios.post("/api/users/logout")
+		},
+		getUser: function () {
+			return axios.get("/api/users/current-user");
 		}
 	}
 

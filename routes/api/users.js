@@ -13,15 +13,28 @@ router.route("/:id")
 	.delete(usersController.remove);
 
 //Matches with "/api/users/current-user"
-router.route("/current-user", isAuthenticated)
-	.get((req, res) => {
-		console.log(req.user);
-		res.json(req.user);
+router.get("/current-user", isAuthenticated, (req, res) => {
+	console.log(req.user);
+	res.json({
+		username: req.user.userName,
+		id: req.user.id
 	});
+});
 
 //Matches with "/api/users/login"
 router.route("/login")
 	.post(passport.authenticate("local"), function (req, res) {
-		res.redirect("/");
-	})
+		if (req.user) {
+			res.status(200).json(req.user);
+		} else {
+			res.status(401);
+		}
+	});
+
+//Matches with "/api/users/logout"
+router.get("/logout", function (req, res) {
+	req.logout();
+	res.redirect("/");
+});
+
 module.exports = router
