@@ -6,7 +6,7 @@ function SearchResults_No(props) {
     return (
         <div className="container backgroundColor">
             <h1>Trafficmon</h1>
-            <p>Sorry, there are no search results this selection.</p>
+            <p>Sorry, there are no search results for this selection.</p>
         </div>
 
     )
