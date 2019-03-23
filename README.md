@@ -81,7 +81,9 @@ Add the user name and password to the local database connection. The values must
 
 Once NPM has been installed run the following command:
 
-```NPM I``` 
+```
+NPM I
+``` 
 
 The cloned package.json will allow the command to install all the set dependencies for the application within the main Project-3 directory and the client directory. Scripting allows for both to update without manual intervention. 
 
