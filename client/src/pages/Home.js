@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import API from "../utils/API";
 import AppContext from '../AppContext';
 import CustomPage from "../components/CustomPage";
-import { Table, THead, TBody, TRow } from "../components/SearchResults";
+// import { Table, THead, TBody, TRow } from "../components/SearchResults";
 
 let customPage;
 let customTable;
@@ -46,29 +46,30 @@ class Home extends Component {
 	checkUserLogged = () => {
 		if (this.context.user.anonymous !== true) {
 			if (this.state.userReports.length) {
-				customTable = (
-					<Table>
-						<THead />
-						<TBody>
-							{this.state.userReports.map(report => (
-								<TRow
-									key={report.id}
-									type={report.type}
-									description={report.description}
-									location={report.location}
-									city={report.city}
-									state={report.state}
-								/>
-							))}
-						</TBody>
-					</Table>
-				)
+				// customTable = (
+					// <Table>
+					// 	<THead />
+					// 	<TBody>
+					// 		{this.state.userReports.map(report => (
+					// 			<TRow
+					// 				key={report.id}
+					// 				type={report.type}
+					// 				description={report.description}
+					// 				location={report.location}
+					// 				city={report.city}
+					// 				state={report.state}
+					// 			/>
+					// 		))}
+					// 	</TBody>
+					// </Table>
+				// )
 			};
 
 			customPage = (
 				<div>
 					<CustomPage
 						username={this.context.user.username}
+						reports={this.state.userReports}
 					/>
 					{customTable}
 				</div>
