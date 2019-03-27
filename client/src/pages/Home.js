@@ -100,7 +100,6 @@ class Home extends Component {
 				<Navigation />
 				<Welcome />
 				{customPage}
-				{/* <TrafficMonMap /> */}
 				<Footer />
 			</div>
 		)
