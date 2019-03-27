@@ -11,7 +11,7 @@ export default function CustomPage(props) {
       <Table>
         <THead />
         <TBody>
-          {props.eports.map(report => (
+          {props.reports.map(report => (
             <TRow
               key={report.id}
               type={report.type}
