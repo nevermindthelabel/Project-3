@@ -5,7 +5,7 @@ function ContainerDiv(props) {
 
     return (
         <div className="container backgroundColor">
-            
+            {props.children}
         </div>
 
     )
