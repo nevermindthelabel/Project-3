@@ -3,15 +3,23 @@ import "./Nav.css";
 import { Nav, Button, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import AppContext from '../../AppContext';
 var moment = require("moment");
 
 let dateAndTime;
 
 export default class Navigation extends React.Component {
+  static contextType = AppContext
+
 
   logoutClick = event => {
     event.preventDefault();
-    API.users.logout();
+    API.users.logout().then(res => {
+      //this.props.history.push("/logout");
+      this.context.setUser({
+        anonymous: true
+      });
+    });
   };
   getDateTime = () => {
     dateAndTime = moment().format("MMMM Do YYYY, h:mm a");
@@ -22,7 +30,7 @@ export default class Navigation extends React.Component {
     return (
       <Navbar expand="lg" bg="dark" >
         <Navbar.Brand>
-          <span className ="text-warning">Traffic</span><span className="text-danger">Mon</span>
+          <span className="text-warning">Traffic</span><span className="text-danger">Mon</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -58,11 +66,11 @@ export default class Navigation extends React.Component {
               variant="Logout"
               onClick={this.logoutClick}
             >
-              <strong>Logout</strong>
+              <Link to={"/logout"}><strong>Logout</strong></Link>
             </Button>
-          <Navbar.Text className="text-primary ml-2" as="strong">
-            <strong>{dateAndTime}</strong>
-          </Navbar.Text>
+            <Navbar.Text className="text-primary ml-2" as="strong">
+              <strong>{dateAndTime}</strong>
+            </Navbar.Text>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
