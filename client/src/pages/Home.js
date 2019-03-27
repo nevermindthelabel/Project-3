@@ -29,7 +29,7 @@ class Home extends Component {
 				res => {
 					//console.log(res.data);
 					if (res.data.username && res.data.id) {
-						this.context.setUser(res.data);
+						//this.context.setUser(res.data);
 						this.setState({
 							user: {
 								username: res.data.username,
@@ -73,6 +73,10 @@ class Home extends Component {
 					{customTable}
 				</div>
 			);
+		} else {
+			customPage = (
+				<Welcome />
+			)
 		};
 	};
 
@@ -98,7 +102,7 @@ class Home extends Component {
 		return (
 			<div>
 				<Navigation />
-				<Welcome />
+				{/* <Welcome /> */}
 				{customPage}
 				<Footer />
 			</div>

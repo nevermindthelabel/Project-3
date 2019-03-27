@@ -3,6 +3,7 @@ import LoginForm from "../components/LoginForm";
 import Navigation from "../components/Navigation";
 import API from "../utils/API";
 import AppContext from '../AppContext';
+import ContainerDiv from "../components/ContainerDiv";
 //import  { Redirect } from 'react-router-dom'
 
 class Login extends Component {
@@ -26,24 +27,34 @@ class Login extends Component {
 			.then(res => {
 				console.log(res.data)
 				if (res.data.userName) {
+					this.getUser();
 					this.props.history.push("/");
 				}
 			})
 			.catch(err => console.log(err));
-		// if the user is successfully logged in:
-		//   this.context.setUser(user)
-		// else
-		//   show Errors
+	}
+
+	getUser = () => {
+		API.users.getUser()
+			.then(
+				res => {
+					if (res.data.username && res.data.id) {
+						this.context.setUser(res.data);
+					}
+				}
+			).catch(err => console.log(err));
 	}
 
 	render() {
 		return (
 			<div>
 				<Navigation />
-				<LoginForm
-					onChange={this.handleInputChange}
-					onClick={this.handleFormSubmit}
-				/>
+				<ContainerDiv>
+					<LoginForm
+						onChange={this.handleInputChange}
+						onClick={this.handleFormSubmit}
+					/>
+				</ContainerDiv>
 			</div>
 		)
 	}

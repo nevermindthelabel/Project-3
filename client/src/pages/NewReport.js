@@ -60,7 +60,7 @@ class NewReport extends Component {
 		return (
 			<div>
 				<Navbar />
-				{reportPage}
+					{reportPage}
 				<Footer />
 			</div>
 		)
