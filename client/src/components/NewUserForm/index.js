@@ -21,7 +21,7 @@ function NewUserForm(props) {
                   <input
                     type="text"
                     name="userName"
-                    value={props.value}
+                    value={props.values.userName}
                     onChange={props.onChange}
                   />
                 </label>
@@ -32,7 +32,7 @@ function NewUserForm(props) {
                   <input
                     type="password"
                     name="password"
-                    value={props.value}
+                    value={props.values.password}
                     onChange={props.onChange}
                   />
                 </label>
