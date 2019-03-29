@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form, Jumbotron, Button} from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import TypeAhead from '../TypeAhead';
 import './style.css'
+import ContainerDiv from '../ContainerDiv';
 const cityList = require("../../resources/index");
 
 
@@ -9,7 +10,7 @@ const cityList = require("../../resources/index");
 
 function ReportSearchForm(props) {
 	return (
-		<Jumbotron controlId="jumbotron">
+		<ContainerDiv>
 			<Form>
 				<TypeAhead name="city" options={cityList} onChange={props.onTypeaheadChange} />
 				<Form.Group controlId="searchForm.StateSelect">
@@ -71,7 +72,7 @@ function ReportSearchForm(props) {
 					Submit
 		</Button>
 			</Form>
-		</Jumbotron>
+		</ContainerDiv>
 	);
 }
 
