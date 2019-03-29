@@ -21,10 +21,14 @@ class NewUser extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.users
-      .createUser(this.state)
-			.then(res => console.log(res.data))
-      .catch(err => console.log(err));
+    const { userName, password } = this.state
+    this.setState({ userName: '', password: ''}, () => {
+
+      API.users
+        .createUser({ userName, password })
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
+    })
   };
 
   render() {
@@ -32,6 +36,7 @@ class NewUser extends Component {
       <div>
         <Navigation />
         <NewUserForm
+          values={this.state}
           onChange={this.handleInputChange}
 					onClick={this.handleFormSubmit}
         />
