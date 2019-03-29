@@ -5,15 +5,17 @@ import ContainerDiv from "../ContainerDiv";
 import "./style.css"
 
 export default function CustomPage(props) {
-	return (
-		<ContainerDiv>
-			Welcome {props.username}!
+  return (
+    <ContainerDiv>
+      Welcome {props.username}!
       <Table>
-        <THead />
+        <THead allowDelete />
         <TBody>
           {props.reports.map(report => (
             <TRow
+              allowDelete
               key={report.id}
+              data-id={report.id}
               type={report.type}
               description={report.description}
               location={report.location}
@@ -23,9 +25,9 @@ export default function CustomPage(props) {
           ))}
         </TBody>
       </Table>
-			<TrafficMonMap />
-		</ContainerDiv>
-	)
+      <TrafficMonMap />
+    </ContainerDiv>
+  )
 }
 
 //export default CustomPage;
