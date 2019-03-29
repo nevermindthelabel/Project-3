@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import ReportSearchForm from "../components/ReportSearchForm";
-import { Table, THead, TBody, TRow } from "../components/SearchResults";
+import { SearchTable, THead, TBody, TRow } from "../components/SearchResults";
 import API from "../utils/API";
 import Footer from '../components/Footer';
 import SearchResultsNo from "../components/SearchResults_No";
@@ -53,7 +53,7 @@ class Search extends Component {
 
 		if (this.state.results.length) {
 			console.log(this.state.results);
-			Container = <Table>
+			Container = <SearchTable>
 				<THead />
 				<TBody>
 					{this.state.results.map(report => (
@@ -67,7 +67,7 @@ class Search extends Component {
 						/>
 					))}
 				</TBody>
-			</Table>
+			</SearchTable>
 		} else {
 			Container = (
 				<SearchResultsNo />

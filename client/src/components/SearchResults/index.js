@@ -1,11 +1,12 @@
 import React from "react";
-import "./style.css"
+import { Table } from 'react-bootstrap';
+import "./style.css";
 
-export function Table(props) {
+export function SearchTable(props) {
 	return (
-		<table className="table table-sm table-light">
+		<Table responsive className="table table-light">
 			{props.children}
-		</table>
+		</Table>
 	);
 };
 

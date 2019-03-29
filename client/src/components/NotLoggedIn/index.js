@@ -1,11 +1,11 @@
 import React from "react";
-//import { Link } from "react-bootstrap";
-import './style.css'
+import './style.css';
+import ContainerDiv from '../ContainerDiv'
 
 
 function NotLoggedIn(props) {
 	return (
-		<div className="jumbotron">
+		<ContainerDiv>
 			<div className="container">
 				<div className="row">
 					<h1 className="display-4">Not Logged In</h1>
@@ -13,13 +13,15 @@ function NotLoggedIn(props) {
 					<hr className="my-4" />
 					<p>Please login to submit reports</p>
 						<div className="lead">
-							<a className="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+
+							<a className="btn btn-primary btn-lg ml-2" href="/login" role="button">Login</a>
+
 							<div className="divider" />
 							<a className="btn btn-primary btn-lg" href="/new-user" role="button">Create an Account</a>
 						</div>
 				</div>
 			</div>
-		</div>
+		</ContainerDiv>
 	)
 }
 
