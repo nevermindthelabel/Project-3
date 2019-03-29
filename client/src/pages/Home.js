@@ -45,26 +45,7 @@ class Home extends Component {
 
 	checkUserLogged = () => {
 		if (this.context.user.anonymous !== true) {
-			if (this.state.userReports.length) {
-				// customTable = (
-					// <Table>
-					// 	<THead />
-					// 	<TBody>
-					// 		{this.state.userReports.map(report => (
-					// 			<TRow
-					// 				key={report.id}
-					// 				type={report.type}
-					// 				description={report.description}
-					// 				location={report.location}
-					// 				city={report.city}
-					// 				state={report.state}
-					// 			/>
-					// 		))}
-					// 	</TBody>
-					// </Table>
-				// )
-			};
-
+			
 			customPage = (
 				<div>
 					<CustomPage
@@ -103,7 +84,6 @@ class Home extends Component {
 		return (
 			<div>
 				<Navigation />
-				{/* <Welcome /> */}
 				{customPage}
 				<Footer />
 			</div>

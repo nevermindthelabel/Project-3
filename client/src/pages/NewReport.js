@@ -3,7 +3,6 @@ import NewReportForm from "../components/NewReportForm";
 import Navbar from "../components/Navigation";
 import API from "../utils/API";
 import Footer from "../components/Footer";
-// import '../index.css'
 import AppContext from '../AppContext';
 import NotLoggedIn from "../components/NotLoggedIn";
 

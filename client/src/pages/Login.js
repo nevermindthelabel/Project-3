@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation";
 import API from "../utils/API";
 import AppContext from '../AppContext';
 import ContainerDiv from "../components/ContainerDiv";
-//import  { Redirect } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 class Login extends Component {
 	static contextType = AppContext
@@ -55,6 +55,7 @@ class Login extends Component {
 						onClick={this.handleFormSubmit}
 					/>
 				</ContainerDiv>
+				<Footer />
 			</div>
 		)
 	}
