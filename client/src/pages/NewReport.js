@@ -3,13 +3,11 @@ import NewReportForm from "../components/NewReportForm";
 import Navbar from "../components/Navigation";
 import API from "../utils/API";
 import Footer from "../components/Footer";
-import AppContext from '../AppContext';
 import NotLoggedIn from "../components/NotLoggedIn";
 
 let reportPage;
 
 class NewReport extends Component {
-	static contextType = AppContext
 
 	state = {
 		type: "",
