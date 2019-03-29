@@ -3,7 +3,8 @@ import "./style.css";
 import { Nav, ButtonGroup, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import AppContext from '../../AppContext'
+import AppContext from '../../AppContext';
+
 var moment = require("moment");
 
 let dateAndTime;
@@ -11,18 +12,14 @@ let dateAndTime;
 export default class Navigation extends React.Component {
   static contextType = AppContext
 
-  // checkUserLogged = () => {
-  //   if (this.context.user.anonymous !== true) {
-  //     <div>
-  //       <i class="fas fa-user-circle" />
-  //     </div>
-  //   } else {
-
-  //   }
-
   logoutClick = event => {
     event.preventDefault();
-    API.users.logout();
+    API.users.logout().then(res => {
+      //this.props.history.push("/logout");
+      this.context.setUser({
+        anonymous: true
+      });
+    });
   };
   getDateTime = () => {
     dateAndTime = moment().format("MMMM Do YYYY, h:mm a");
@@ -33,6 +30,7 @@ export default class Navigation extends React.Component {
     return (
       <Navbar expand="lg" bg="dark">
         <Navbar.Brand>
+
           <span className="text-warning">Traffic</span>
           <span className="text-danger">Mon</span>
         </Navbar.Brand>
@@ -75,8 +73,10 @@ export default class Navigation extends React.Component {
               variant="Logout"
               onClick={this.logoutClick}
             >
+
               <strong>Logout</strong>
             </ButtonGroup>
+
             <Navbar.Text className="text-primary ml-2" as="strong">
               <strong>{dateAndTime}</strong>
             </Navbar.Text>
