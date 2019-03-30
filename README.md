@@ -142,7 +142,8 @@ Below are the screens of the application:
 
 
 
-![Image of Home Screen](https://github.com/Project-3/client/public/img/Home_Screen.png)
+![Image of Home Screen](https://github.com/cbessjr/Project-3/blob/master/client/public/img/Home_Screen.png)
+
 
 <br>
 
