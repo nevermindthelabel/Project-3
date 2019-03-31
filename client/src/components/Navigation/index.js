@@ -39,10 +39,6 @@ export default class Navigation extends React.Component {
       ).catch(err => console.log(err));
   };
 
-  // checkUserLogged = () => {
-  // 	if (this.context.user.anonymous !== true) {
-
-
   logoutClick = event => {
     event.preventDefault();
     API.users.logout().then(res => {

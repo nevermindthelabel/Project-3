@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+import MapModal from '../MapModal';
 import "./style.css";
 
 const MapMarker = ({ incident }) => {
@@ -22,24 +23,40 @@ const MapMarker = ({ incident }) => {
   );
 };
 
+
+
 export default class TrafficMonMap extends Component {
-  constructor() {
-    super();
-    this.state = {
+  
+  state = {
       center: {
         lat: null,
         lng: null
       },
-      zoom: 4
+      zoom: 4,
+      incidents: {
+        lat: 33.714037,
+        lng: -112.1370484
+      }
     };
-  }
+
+    getLatLng = ({ lat, lng }) => {
+      console.log(lat, lng)
+      const newIncident = {
+        lat: lat,
+        lng: lng,
+        incident: 'incident'
+      }
+      this.setState({
+        incidents: {...this.state.incidents, newIncident }
+      })
+    }
 
   componentDidMount() {
     if (!navigator.geolocation) {
       this.setState({
         center: {
           lat: 33.448376,
-          lng: -112.074036
+          lng: -112.074036,
         }
       });
     }
@@ -72,7 +89,7 @@ export default class TrafficMonMap extends Component {
   render() {
     return (
       <div className="map">
-        <GoogleMapReact
+        <GoogleMapReact onClick={this.getLatLng}
           bootstrapURLKeys={{
             key: "AIzaSyDRG4JgxJL_uGmz65iH88bayDb_4hVd93s"
           }}
@@ -86,6 +103,7 @@ export default class TrafficMonMap extends Component {
             incident={"traffic backup"}
           />
         </GoogleMapReact>
+        <MapModal />
       </div>
     );
   }
