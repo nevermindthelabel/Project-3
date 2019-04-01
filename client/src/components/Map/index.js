@@ -49,7 +49,7 @@ export default class TrafficMonMap extends Component {
   };
 
   getLatLng = ({ lat, lng }) => {
-    console.log(this.state.incidents)
+    console.log(this.state)
     const newIncident = {
       lat: lat,
       lng: lng,
