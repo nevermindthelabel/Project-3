@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import Welcome from "../components/WelcomePage";
-// import TrafficMonMap from '../components/Map';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 import API from "../utils/API";
 import AppContext from '../AppContext';
 import CustomPage from "../components/CustomPage";
-// import { Table, THead, TBody, TRow } from "../components/SearchResults";
 
 let customPage;
 let customTable;
