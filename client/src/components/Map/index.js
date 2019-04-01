@@ -56,7 +56,7 @@ export default class TrafficMonMap extends Component {
       incident: 'incident'
     }
     this.setState({
-      incidents: { ...this.state.incidents, newIncident }
+      incidents: [...this.state.incidents, newIncident ]
     })
   }
 
