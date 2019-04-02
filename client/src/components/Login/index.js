@@ -1,7 +1,6 @@
-import React from "react";
-import "./Login.css";
-import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Login(props) {
   return (
@@ -17,13 +16,13 @@ function Login(props) {
           <Form.Control type="password" placeholder="Enter Password" />
         </Form.Group>
         <button variant="login">
-          <Link to={"/"}>
+          <Link to={'/'}>
             <strong>Submit</strong>
           </Link>
         </button>
       </Form>
       <button variant="register">
-        <Link to={"/NewUser"}>
+        <Link to={'/NewUser'}>
           <strong>register</strong>
         </Link>
       </button>

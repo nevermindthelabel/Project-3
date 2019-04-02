@@ -1,5 +1,6 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+/* eslint-disable prettier/prettier */
+import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 
 function LoginForm(props) {
   return (
@@ -8,8 +9,7 @@ function LoginForm(props) {
         Log in to Traffic<span className="text-danger">Mon</span>!
       </h2>
       <h5 className="text-center">
-        Please log in to create reports and view or edit your
-        reports.
+        Please log in to create reports and view or edit your reports.
       </h5>
       <form className="text-center mt-4" onSubmit={props.handleSubmit}>
         <label>

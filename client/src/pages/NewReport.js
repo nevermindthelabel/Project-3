@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import NewReportForm from "../components/NewReportForm";
-import Navbar from "../components/Navigation";
-import API from "../utils/API";
-import AppContext from "../AppContext";
-import Footer from "../components/Footer";
-import NotLoggedIn from "../components/NotLoggedIn";
+import React, { Component } from 'react';
+import NewReportForm from '../components/NewReportForm';
+import Navbar from '../components/Navigation';
+import API from '../utils/API';
+import AppContext from '../AppContext';
+import Footer from '../components/Footer';
+import NotLoggedIn from '../components/NotLoggedIn';
 
 let reportPage;
 
@@ -12,11 +12,11 @@ class NewReport extends Component {
   static contextType = AppContext;
 
   state = {
-    type: "",
-    description: "",
-    location: "",
-    city: "",
-    state: "",
+    type: '',
+    description: '',
+    location: '',
+    city: '',
+    state: '',
     UserId: this.context.user.id
   };
 
@@ -39,10 +39,7 @@ class NewReport extends Component {
     if (this.context.user.anonymous !== true) {
       reportPage = (
         <div>
-          <NewReportForm
-            onChange={this.handleInputChange}
-            onClick={this.handleFormSubmit}
-          />
+          <NewReportForm onChange={this.handleInputChange} onClick={this.handleFormSubmit} />
         </div>
       );
     } else {

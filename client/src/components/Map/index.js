@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import GoogleMapReact from "google-map-react";
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
 import MapModal from '../MapModal';
-import "./style.css";
+import './style.css';
 
 const MapMarker = ({ incident }) => {
   return (
     <div
       style={{
-        color: "white",
-        background: "grey",
-        padding: "15px 10px",
-        display: "inline-flex",
-        textAlign: "center",
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: "100%",
-        transform: "translate(-50%, -50%)"
+        color: 'white',
+        background: 'grey',
+        padding: '15px 10px',
+        display: 'inline-flex',
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '100%',
+        transform: 'translate(-50%, -50%)'
       }}
     >
       {incident}
@@ -23,49 +23,45 @@ const MapMarker = ({ incident }) => {
   );
 };
 
-
-
 export default class TrafficMonMap extends Component {
-
   state = {
     center: {
       lat: null,
       lng: null
     },
     zoom: 4,
-    incidents: [{
-      lat: 33.714037,
-      lng: -112.1370484,
-      incident: 'incident'
-    },
-    {
-      lat:  33.514037,
-      lng: -112.1570484,
-      incident: 'incident'
-    }
-  
-  ]
-    
+    incidents: [
+      {
+        lat: 33.714037,
+        lng: -112.1370484,
+        incident: 'incident'
+      },
+      {
+        lat: 33.514037,
+        lng: -112.1570484,
+        incident: 'incident'
+      }
+    ]
   };
 
   getLatLng = ({ lat, lng }) => {
-    console.log(this.state)
+    console.log(this.state);
     const newIncident = {
       lat: lat,
       lng: lng,
       incident: 'incident'
-    }
+    };
     this.setState({
-      incidents: { ...this.state.incidents, newIncident }
-    })
-  }
+      incidents: [...this.state.incidents, newIncident]
+    });
+  };
 
   componentDidMount() {
     if (!navigator.geolocation) {
       this.setState({
         center: {
           lat: 33.448376,
-          lng: -112.074036,
+          lng: -112.074036
         }
       });
     }
@@ -98,11 +94,12 @@ export default class TrafficMonMap extends Component {
   render() {
     return (
       <div className="map">
-        <GoogleMapReact onClick={this.getLatLng}
+        <GoogleMapReact
+          onClick={this.getLatLng}
           bootstrapURLKeys={{
-            key: "AIzaSyDRG4JgxJL_uGmz65iH88bayDb_4hVd93s"
+            key: 'AIzaSyDRG4JgxJL_uGmz65iH88bayDb_4hVd93s'
           }}
-          layerTypes={["TrafficLayer"]}
+          layerTypes={['TrafficLayer']}
           center={this.state.center}
           defaultZoom={this.state.zoom}
         >
