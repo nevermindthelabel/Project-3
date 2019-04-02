@@ -1,42 +1,42 @@
-import React from "react";
-import "./style.css";
-import { Nav, ButtonGroup, Navbar, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './style.css';
+import { Nav, ButtonGroup, Navbar, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import AppContext from '../../AppContext';
-import API from "../../utils/API";
+import API from '../../utils/API';
 
-var moment = require("moment");
+var moment = require('moment');
 
 let dateAndTime;
 
 export default class Navigation extends React.Component {
-  static contextType = AppContext
+  static contextType = AppContext;
 
   state = {
     user: {}
-  }
+  };
 
   componentDidMount() {
     this.getUser();
   }
 
   getUser = () => {
-    API.users.getUser()
-      .then(
-        res => {
-          //console.log(res.data);
-          if (res.data.username && res.data.id) {
-            //this.context.setUser(res.data);
-            this.setState({
-              user: {
-                username: res.data.username,
-                id: res.data.id
-              }
-            })
-            console.log(this.context.user.username);
-          }
+    API.users
+      .getUser()
+      .then(res => {
+        //console.log(res.data);
+        if (res.data.username && res.data.id) {
+          //this.context.setUser(res.data);
+          this.setState({
+            user: {
+              username: res.data.username,
+              id: res.data.id
+            }
+          });
+          console.log(this.context.user.username);
         }
-      ).catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   };
 
   logoutClick = event => {
@@ -49,7 +49,7 @@ export default class Navigation extends React.Component {
     });
   };
   getDateTime = () => {
-    dateAndTime = moment().format("MMMM Do YYYY, h:mm a");
+    dateAndTime = moment().format('MMMM Do YYYY, h:mm a');
   };
 
   render() {
@@ -63,42 +63,37 @@ export default class Navigation extends React.Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav.Link as="strong">
-            <Link to={"/"}>
+            <Link to={'/'}>
               <strong>Home</strong>
             </Link>
           </Nav.Link>
           <Nav.Link as="strong">
-            <Link to={"/new-user"}>
+            <Link to={'/new-user'}>
               <strong>New User</strong>
             </Link>
           </Nav.Link>
           <Nav.Link as="strong">
-            <Link to={"/search"}>
+            <Link to={'/search'}>
               <strong>Search</strong>
             </Link>
           </Nav.Link>
           <Nav.Link as="strong">
-            <Link to={"/new-report"}>
+            <Link to={'/new-report'}>
               <strong>New Report</strong>
             </Link>
           </Nav.Link>
           <Nav>
             <Row>
               <Col>
-                {this.context.user.anonymous !== true ?
-                  (
-                    <i className="fas fa-user"></i>
-                  ) : (
-                <ButtonGroup
-                  className="right btn btn-primary"
-                  size="small"
-                  variant="Login"
-                >
-                  <Link to={"/login"}>
-                    <strong className="text-white">Login</strong>
-                  </Link>
-                </ButtonGroup>
-                  )}
+                {this.context.user.anonymous !== true ? (
+                  <i className="fas fa-user" />
+                ) : (
+                  <ButtonGroup className="right btn btn-primary" size="small" variant="Login">
+                    <Link to={'/login'}>
+                      <strong className="text-white">Login</strong>
+                    </Link>
+                  </ButtonGroup>
+                )}
                 <div className="divider" />
                 <ButtonGroup
                   className="right btn btn-danger"

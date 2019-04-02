@@ -1,14 +1,8 @@
 import React from 'react';
-import './style.css'
+import './style.css';
 
 function ContainerDiv(props) {
-
-    return (
-        <div className="container backgroundColor">
-            {props.children}
-        </div>
-
-    )
+  return <div className="container backgroundColor">{props.children}</div>;
 }
 
 export default ContainerDiv;

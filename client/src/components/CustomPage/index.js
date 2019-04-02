@@ -1,8 +1,8 @@
-import React from "react";
-import { SearchTable, THead, TBody, TRow } from "../SearchResults";
-import TrafficMonMap from "../Map";
-import ContainerDiv from "../ContainerDiv";
-import "./style.css";
+import React from 'react';
+import { SearchTable, THead, TBody, TRow } from '../SearchResults';
+import TrafficMonMap from '../Map';
+import ContainerDiv from '../ContainerDiv';
+import './style.css';
 
 export default function CustomPage(props) {
   return (
