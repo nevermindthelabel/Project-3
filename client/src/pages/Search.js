@@ -60,25 +60,27 @@ class Search extends Component {
 
     if (this.state.results.length) {
       console.log(this.state.results);
-      Container = <SearchTable>
-        <THead />
-        <TBody>
-					{this.state.results.map(report => (
-						<TRow
-							key={report.id}
-							type={report.type}
-							description={report.description}
-							location={report.location}
-							city={report.city}
-							state={report.state}
-						/>
-					))}
-				</TBody>
-			</SearchTable>
-		} else {
-			Container = (
-			  <SearchResultsNo />
-      )
+      Container = (
+        <div className="container">
+          <SearchTable>
+            <THead />
+            <TBody>
+              {this.state.results.map(report => (
+                <TRow
+                  key={report.id}
+                  type={report.type}
+                  description={report.description}
+                  location={report.location}
+                  city={report.city}
+                  state={report.state}
+                />
+              ))}
+            </TBody>
+          </SearchTable>
+        </div>
+      );
+    } else {
+      Container = <SearchResultsNo />;
     }
 
     return (
