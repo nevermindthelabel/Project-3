@@ -45,7 +45,7 @@ export default class TrafficMonMap extends Component {
   };
 
   getLatLng = ({ lat, lng }) => {
-    console.log(this.state);
+    console.log(this.state.incidents);
     const newIncident = {
       lat: lat,
       lng: lng,
@@ -92,6 +92,21 @@ export default class TrafficMonMap extends Component {
   }
 
   render() {
+    let TrafficIncidents = (
+      <div>
+        {this.state.incidents.map((incident, index) => {
+          return (
+            <MapMarker
+              lat={incident.lat}
+              lng={incident.lng}
+              incident={incident.incident}
+              key={index}
+            />
+          );
+        })}
+      </div>
+    );
+
     return (
       <div className="map">
         <GoogleMapReact
@@ -103,11 +118,16 @@ export default class TrafficMonMap extends Component {
           center={this.state.center}
           defaultZoom={this.state.zoom}
         >
-          <MapMarker
-            lat={this.state.incidents.lat}
-            lng={this.state.incidents.lng}
-            incident={this.state.incidents.incident}
-          />
+          {TrafficIncidents}
+          {/* <MapMarker
+            {this.state.incidents.map{incident => {
+              return 
+            }}}
+            // lat={this.state.incidents.lat}
+            // lng={this.state.incidents.lng}
+            // incident={this.state.incidents.incident}
+            // {...this.state.incidents}
+          /> */}
         </GoogleMapReact>
         <MapModal />
       </div>
