@@ -45,15 +45,18 @@ export default class TrafficMonMap extends Component {
   };
 
   getLatLng = ({ lat, lng }) => {
-    console.log(this.state.incidents);
+    console.log(lat, lng);
     const newIncident = {
       lat: lat,
       lng: lng,
       incident: 'incident'
     };
-    this.setState({
-      incidents: [...this.state.incidents, newIncident]
-    });
+    this.setState(
+      {
+        incidents: [...this.state.incidents, newIncident]
+      },
+      console.log(this.state.incidents, newIncident)
+    );
   };
 
   componentDidMount() {
@@ -69,7 +72,7 @@ export default class TrafficMonMap extends Component {
       position => {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        console.log(`getCurrentPosition - Success ${lat} and ${lng}`); // logs position correctly
+        console.log(`getCurrentPosition - Success ${lat} and ${lng}`);
         this.setState({
           center: {
             lat: lat,
@@ -92,21 +95,6 @@ export default class TrafficMonMap extends Component {
   }
 
   render() {
-    let TrafficIncidents = (
-      <div>
-        {this.state.incidents.map((incident, index) => {
-          return (
-            <MapMarker
-              lat={incident.lat}
-              lng={incident.lng}
-              incident={incident.incident}
-              key={index}
-            />
-          );
-        })}
-      </div>
-    );
-
     return (
       <div className="map">
         <GoogleMapReact
@@ -118,16 +106,18 @@ export default class TrafficMonMap extends Component {
           center={this.state.center}
           defaultZoom={this.state.zoom}
         >
-          {TrafficIncidents}
-          {/* <MapMarker
-            {this.state.incidents.map{incident => {
-              return 
-            }}}
-            // lat={this.state.incidents.lat}
-            // lng={this.state.incidents.lng}
-            // incident={this.state.incidents.incident}
-            // {...this.state.incidents}
-          /> */}
+          <MapMarker lat={33.448376} lng={-112.074036} incident={'traffic backup'} />
+          <MapMarker lat={33.7133568} lng={-112.13701119999999} incident={'stuff'} />
+          {this.state.incidents.map((incident, index) => {
+            return (
+              <MapMarker
+                lat={incident.lat}
+                lng={incident.lng}
+                incident={incident.incident}
+                key={index}
+              />
+            );
+          })}
         </GoogleMapReact>
         <MapModal />
       </div>
