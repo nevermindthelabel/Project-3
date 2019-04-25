@@ -4,7 +4,7 @@ import './style.css';
 
 export function SearchTable(props) {
   return (
-    <Table responsive className="table table-light">
+    <Table responsive striped hover>
       {props.children}
     </Table>
   );
