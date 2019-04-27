@@ -24,7 +24,12 @@ class NewUser extends Component {
     this.setState({ userName: '', password: '' }, () => {
       API.users
         .createUser({ userName, password })
-        .then(res => console.log(res.data))
+        .then(res => {
+          if (res.data) {
+            this.props.history.push('/login');
+          }
+          alert('Thank you for creating an account, please log in');
+        })
         .catch(err => console.log(err));
     });
   };
