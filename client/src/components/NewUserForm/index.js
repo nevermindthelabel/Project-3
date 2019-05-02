@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import './style.css';
 
 function NewUserForm(props) {
@@ -13,27 +13,33 @@ function NewUserForm(props) {
           <h5 className="text-center">
             In order to create a report, you must create an account and log in.
           </h5>
-          <form className="text-center mt-4 mb-4" onSubmit={props.handleSubmit}>
-            <label>
+          <Form /*className="text-center mt-4 mb-4"*/ onSubmit={props.handleSubmit}>
+            <Form.Group as={Row} style={{ alignItems: 'center' }}>
+              {/* <Form.Label column sm="2"> */}
               <strong>User Name:</strong>
-              <input
-                type="text"
-                name="userName"
-                value={props.values.userName}
-                onChange={props.onChange}
-              />
-            </label>
-
-            <label>
-              <strong className="ml-2">Password:</strong>
-              <input
-                type="password"
-                name="password"
-                value={props.values.password}
-                onChange={props.onChange}
-              />
-            </label>
-
+              {/* </Form.Label> */}
+              <Col xs={true} lg={6}>
+                <Form.Control
+                  type="text"
+                  name="userName"
+                  value={props.values.userName}
+                  onChange={props.onChange}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              {/* <Form.Label column sm={2}> */}
+              <strong>Password:</strong>
+              {/* </Form.Label> */}
+              <Col xs={true} lg={6}>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={props.values.password}
+                  onChange={props.onChange}
+                />
+              </Col>
+            </Form.Group>
             <Row>
               <Col lg={10}>
                 <button
@@ -45,7 +51,7 @@ function NewUserForm(props) {
                 </button>
               </Col>
             </Row>
-          </form>
+          </Form>
         </div>
       </div>
     </div>
