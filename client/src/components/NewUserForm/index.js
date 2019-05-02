@@ -2,6 +2,17 @@ import React from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
 import './style.css';
 
+const formStyle = {
+  justifyContent: 'center',
+  marginBottom: '2rem'
+};
+
+const formMargin = {
+  justifyContent: 'center',
+  marginBottom: '2rem',
+  marginTop: '3rem'
+};
+
 function NewUserForm(props) {
   return (
     <div className="container">
@@ -14,7 +25,7 @@ function NewUserForm(props) {
             In order to create a report, you must create an account and log in.
           </h5>
           <Form /*className="text-center mt-4 mb-4"*/ onSubmit={props.handleSubmit}>
-            <Form.Group as={Row} style={{ alignItems: 'center' }}>
+            <Form.Group as={Row} style={formMargin}>
               {/* <Form.Label column sm="2"> */}
               <strong>User Name:</strong>
               {/* </Form.Label> */}
@@ -27,7 +38,7 @@ function NewUserForm(props) {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
+            <Form.Group as={Row} style={formStyle}>
               {/* <Form.Label column sm={2}> */}
               <strong>Password:</strong>
               {/* </Form.Label> */}
