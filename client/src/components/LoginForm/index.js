@@ -1,6 +1,16 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
+
+const formStyle = {
+  justifyContent: 'center',
+  marginBottom: '2rem'
+};
+
+const formMargin = {
+  justifyContent: 'center',
+  marginBottom: '2rem',
+  marginTop: '3rem'
+};
 
 function LoginForm(props) {
   return (
@@ -11,30 +21,31 @@ function LoginForm(props) {
       <h5 className="text-center">
         Please log in to create reports and view or edit your reports.
       </h5>
-      <form className="text-center mt-4" onSubmit={props.handleSubmit}>
-        <label>
+      <Form className="text-center mt-4" onSubmit={props.handleSubmit}>
+        <Form.Group as={Row} style={formMargin}>
           <strong>User Name:</strong>
-          <input
-            type="text"
-            name="username"
-            value={props.value}
-            onChange={props.onChange}
-          />
-        </label>
-
-        <label>
+          <Col xs={true} lg={6}>
+            <Form.Control
+              type="text"
+              name="username"
+              value={props.value}
+              onChange={props.onChange}
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} style={formStyle}>
           <strong className="ml-2">Password:</strong>
-          <input
-            type="password"
-            name="password"
-            value={props.value}
-            onChange={props.onChange}
-          />
-        </label>
-        <Row>
+          <Col xs={true} lg={6}>
+            <Form.Control
+              type="password"
+              name="password"
+              value={props.value}
+              onChange={props.onChange}
+            />
+          </Col>
           <Col lg={10}>
             <button
-              className="btn btn-primary ml-2 float-right"
+              className="btn btn-primary ml-2 mt-4 float-right"
               onClick={props.onClick}
               variant="primary"
               size="sm"
@@ -42,8 +53,8 @@ function LoginForm(props) {
               Submit
             </button>
           </Col>
-        </Row>
-      </form>
+        </Form.Group>
+      </Form>
     </div>
   );
 }
