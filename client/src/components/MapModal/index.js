@@ -9,6 +9,7 @@ let buttonStyle = {
 export default class MapModal extends Component {
   constructor(props, context) {
     super(props, context);
+    console.log(props);
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -29,7 +30,7 @@ export default class MapModal extends Component {
   render() {
     return (
       <>
-        <Button variant="danger" onClick={this.handleShow} style={buttonStyle}>
+        <Button variant="danger" onClick={this.props.mapClick} style={buttonStyle}>
           Create Report
         </Button>
 
