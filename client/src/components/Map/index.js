@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+// import { Button } from 'react-bootstrap';
+// import API from '../../utils/API';
 import MapModal from '../MapModal';
 import './style.css';
 
@@ -23,6 +25,10 @@ const MapMarker = ({ incident }) => {
   );
 };
 
+const buttonStyle = {
+  margin: 'auto'
+};
+
 export default class TrafficMonMap extends Component {
   state = {
     center: {
@@ -41,25 +47,28 @@ export default class TrafficMonMap extends Component {
         lng: -112.1570484,
         incident: 'incident'
       }
-    ]
+    ],
+    reportIncident: false
   };
 
   getLatLng = ({ lat, lng }) => {
-    console.log(lat, lng);
-    const newIncident = {
-      lat: lat,
-      lng: lng,
-      incident: 'incident'
-    };
-    this.setState(
-      {
-        incidents: [...this.state.incidents, newIncident]
-      },
-      console.log(this.state.incidents, newIncident)
-    );
+    if (this.state.reportIncident !== false) {
+      console.log(lat, lng);
+      const newIncident = {
+        lat: lat,
+        lng: lng,
+        incident: 'incident'
+      };
+      this.setState(
+        {
+          incidents: [...this.state.incidents, newIncident]
+        },
+        console.log(this.state.incidents, newIncident)
+      );
+    }
   };
-
   componentDidMount() {
+    console.log(this.renderIncidents);
     if (!navigator.geolocation) {
       this.setState({
         center: {
@@ -94,7 +103,14 @@ export default class TrafficMonMap extends Component {
     );
   }
 
+  reportIncident = () => {
+    this.setState({
+      reportIncident: true
+    });
+  };
+
   render() {
+    // {this.renderIncidents.map()}
     return (
       <div className="map">
         <GoogleMapReact
@@ -105,6 +121,7 @@ export default class TrafficMonMap extends Component {
           layerTypes={['TrafficLayer']}
           center={this.state.center}
           defaultZoom={this.state.zoom}
+          yesIWantToUseGoogleMapApiInternals
         >
           <MapMarker lat={33.448376} lng={-112.074036} incident={'traffic backup'} />
           <MapMarker lat={33.7133568} lng={-112.13701119999999} incident={'stuff'} />
@@ -119,7 +136,16 @@ export default class TrafficMonMap extends Component {
             );
           })}
         </GoogleMapReact>
-        <MapModal />
+        <MapModal mapClick={this.reportIncident} />
+        {/* <Button
+          variant={'danger'}
+          style={buttonStyle}
+          // onClick={this.setState({
+          //   reportIncident: true
+          // })}
+        >
+          Create Report
+        </Button> */}
       </div>
     );
   }
