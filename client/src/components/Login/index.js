@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Login(props) {
+const Login = () => {
   return (
     <div>
       <Form>
@@ -28,5 +28,6 @@ function Login(props) {
       </button>
     </div>
   );
-}
+};
+
 export default Login;
