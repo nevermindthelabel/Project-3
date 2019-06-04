@@ -4,8 +4,7 @@ import TrafficMonMap from '../Map';
 import ContainerDiv from '../ContainerDiv';
 import './style.css';
 
-export default function CustomPage(props) {
-  console.log(props);
+const CustomPage = props => {
   return (
     <ContainerDiv>
       <h1 className="text-center">
@@ -42,4 +41,6 @@ export default function CustomPage(props) {
       <TrafficMonMap reports={props.reports} />
     </ContainerDiv>
   );
-}
+};
+
+export default CustomPage;
