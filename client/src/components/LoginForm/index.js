@@ -12,7 +12,7 @@ const formMargin = {
   marginTop: '3rem'
 };
 
-function LoginForm(props) {
+const LoginForm = props => {
   return (
     <div className="text-center mb-4">
       <h2>
@@ -57,6 +57,6 @@ function LoginForm(props) {
       </Form>
     </div>
   );
-}
+};
 
 export default LoginForm;
