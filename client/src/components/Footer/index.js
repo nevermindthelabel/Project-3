@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export default function(props) {
+const Footer = () => {
   return (
     <footer>
       <p className="text-center">
@@ -12,4 +12,6 @@ export default function(props) {
       </p>
     </footer>
   );
-}
+};
+
+export default Footer;
