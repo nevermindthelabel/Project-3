@@ -21,6 +21,6 @@ const WelcomePage = () => {
       <TrafficMonMap />
     </ContainerDiv>
   );
-}
+};
 
 export default WelcomePage;
