@@ -3,7 +3,7 @@ import TrafficMonMap from '../Map';
 import ContainerDiv from '../ContainerDiv';
 import './style.css';
 
-function WelcomePage(props) {
+const WelcomePage = () => {
   return (
     <ContainerDiv className="text-center mt-4">
       <h1>
@@ -21,6 +21,6 @@ function WelcomePage(props) {
       <TrafficMonMap />
     </ContainerDiv>
   );
-}
+};
 
 export default WelcomePage;

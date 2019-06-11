@@ -13,7 +13,7 @@ const formMargin = {
   marginTop: '3rem'
 };
 
-function NewUserForm(props) {
+const NewUserForm = props => {
   return (
     <div className="container">
       <div className="container background-color">
@@ -24,11 +24,9 @@ function NewUserForm(props) {
           <h5 className="text-center">
             In order to create a report, you must create an account and log in.
           </h5>
-          <Form /*className="text-center mt-4 mb-4"*/ onSubmit={props.handleSubmit}>
+          <Form className="text-center mt-4 mb-4" onSubmit={props.handleSubmit}>
             <Form.Group as={Row} style={formMargin}>
-              {/* <Form.Label column sm="2"> */}
               <strong>User Name:</strong>
-              {/* </Form.Label> */}
               <Col xs={true} lg={6}>
                 <Form.Control
                   type="text"
@@ -39,9 +37,7 @@ function NewUserForm(props) {
               </Col>
             </Form.Group>
             <Form.Group as={Row} style={formStyle}>
-              {/* <Form.Label column sm={2}> */}
               <strong>Password:</strong>
-              {/* </Form.Label> */}
               <Col xs={true} lg={6}>
                 <Form.Control
                   type="password"
@@ -67,6 +63,6 @@ function NewUserForm(props) {
       </div>
     </div>
   );
-}
+};
 
 export default NewUserForm;

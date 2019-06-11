@@ -5,14 +5,14 @@ import './style.css';
 import ContainerDiv from '../ContainerDiv';
 const cityList = require('../../resources/index');
 
-function ReportSearchForm(props) {
+const ReportSearchForm = ({ onChange, onTypeaheadChange, onClick }) => {
   return (
     <ContainerDiv>
       <Form className="mb-5">
-        <TypeAhead name="city" options={cityList} onChange={props.onTypeaheadChange} />
+        <TypeAhead name="city" options={cityList} onChange={onTypeaheadChange} />
         <Form.Group controlId="searchForm.StateSelect">
           <Form.Label>Select State to search by State</Form.Label>
-          <Form.Control name="state" onChange={props.onChange} as="select">
+          <Form.Control name="state" onChange={onChange} placeholder="Select State" as="select">
             <option>Alabama</option>
             <option>Alaska</option>
             <option>Arizona</option>
@@ -65,12 +65,12 @@ function ReportSearchForm(props) {
             <option>Wyoming</option>
           </Form.Control>
         </Form.Group>
-        <Button className="float-right" onClick={props.onClick} variant="primary" type="submit">
+        <Button className="float-right" onClick={onClick} variant="primary" type="submit">
           Submit
         </Button>
       </Form>
     </ContainerDiv>
   );
-}
+};
 
 export default ReportSearchForm;

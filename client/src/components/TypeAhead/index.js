@@ -4,7 +4,7 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 const cityList = require('../../resources/index');
 
-function TypeAhead(props) {
+const TypeAhead = props => {
   return (
     <div>
       <Form.Group controlId="searchForm.CitySelect">
@@ -22,6 +22,6 @@ function TypeAhead(props) {
       </Form.Group>
     </div>
   );
-}
+};
 
 export default TypeAhead;
