@@ -8,9 +8,23 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
+    // email required for resetting a password and for the optional carpool feature
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    // second password for confirmation
+    password2: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    // optional zip code for user carpools
+    zipCode: {
+      type: DataTypes.STRING
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -19,12 +33,15 @@ module.exports = function(sequelize, DataTypes) {
   };
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a NewUser is created, we will automatically hash their password
-  Users.hook("beforeCreate", function(users) {
-    users.password = bcrypt.hashSync(
-      users.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
+  // Users.hook("beforeCreate", function(users) {
+  //   users.password = bcrypt.hashSync(
+  //     users.password,
+  //     bcrypt.genSaltSync(10),
+  //     null
+  //   );
+  // });
+  Users.beforeCreate(users => {
+    users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
   });
 
   Users.associate = function(models) {
