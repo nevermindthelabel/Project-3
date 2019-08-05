@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
+    // email required for resetting a password and for the optional carpool feature
     email: {
       type: DataTypes.STRING,
       allowNull: false
@@ -16,10 +17,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    // second password for confirmation
     password2: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    // optional zip code for user carpools
     zipCode: {
       type: DataTypes.STRING
     }
