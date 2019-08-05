@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     // second password for confirmation
     password2: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     // optional zip code for user carpools
     zipCode: {
