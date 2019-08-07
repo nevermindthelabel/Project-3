@@ -1,7 +1,7 @@
-var bcrypt = require("bcrypt-nodejs");
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(sequelize, DataTypes) {
-  var Users = sequelize.define("Users", {
+  var Users = sequelize.define('Users', {
     // Giving the Username model a name of type STRING
     userName: {
       type: DataTypes.STRING,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     // email required for resetting a password and for the optional carpool feature
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     password: {
       type: DataTypes.STRING,
@@ -19,13 +19,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     // second password for confirmation
     password2: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
+      // allowNull: false
     },
     // optional zip code for user carpools
     zipCode: {
       type: DataTypes.STRING
-    }
+    },
+    // hooks: {
+    //   beforeCreate: users => {
+    //     const salt = bcrypt.genSaltSync();
+    //     users.password = bcrypt.hashSync(users.password, salt);
+    //   }
+    // }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Users.prototype.validPassword = function(password) {
@@ -40,9 +46,12 @@ module.exports = function(sequelize, DataTypes) {
   //     null
   //   );
   // });
-  Users.beforeCreate(users => {
-    users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
-  });
+  // Users.hook('beforeCreate', (users) => {
+  //   users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
+  // });
+  // Users.beforeCreate(users => {
+  //   users.password = bcrypt.hashSync(users.password, bcrypt.genSaltSync(10), null);
+  // });
 
   Users.associate = function(models) {
     // Associating Author with Posts
