@@ -41,13 +41,14 @@ passport.use(
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, done) {
   done(null, user.id);
+  console.log(user);
 });
 
 passport.deserializeUser(function(id, done) {
   // db.Users.findById(id, function(err, user) {
   //   done(err, user);
   // });
-  db.Users.findById(id).then(function(user) {
+  db.Users.findByPk(id).then(function(user) {
     if (user) {
       done(null, user.get());
     } else {
