@@ -4,6 +4,7 @@ import ReportSearchForm from '../components/ReportSearchForm';
 import { SearchTable, THead, TBody, TRow } from '../components/SearchResults';
 import API from '../utils/API';
 import Footer from '../components/Footer';
+import ContainerDiv from '../components/ContainerDiv';
 import SearchResultsNo from '../components/SearchResults_No';
 
 class Search extends Component {
@@ -59,9 +60,8 @@ class Search extends Component {
     let Container;
 
     if (this.state.results.length) {
-      console.log(this.state.results);
       Container = (
-        <div className="container">
+        <ContainerDiv>
           <SearchTable>
             <THead />
             <TBody>
@@ -77,7 +77,7 @@ class Search extends Component {
               ))}
             </TBody>
           </SearchTable>
-        </div>
+        </ContainerDiv>
       );
     } else {
       Container = <SearchResultsNo />;
