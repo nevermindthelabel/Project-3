@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-// import { Button } from 'react-bootstrap';
-// import API from '../../utils/API';
+import API from '../../utils/API';
+import { Button } from 'react-bootstrap';
 import MapModal from '../MapModal';
 import './style.css';
 
@@ -26,7 +26,12 @@ const MapMarker = ({ incident }) => {
 };
 
 const buttonStyle = {
-  margin: 'auto'
+  margin: '20px'
+};
+
+const divStyle = {
+  display: 'flex',
+  justifyContent: 'center'
 };
 
 export default class TrafficMonMap extends Component {
@@ -49,6 +54,16 @@ export default class TrafficMonMap extends Component {
       }
     ],
     reportIncident: false
+  };
+
+  getAllReports = () => {
+    API.reports.getReports().then(res => {
+      if (res.data) {
+        console.log(res.data);
+      } else {
+        console.log('No Reports in Database');
+      }
+    });
   };
 
   getLatLng = ({ lat, lng }) => {
@@ -109,7 +124,14 @@ export default class TrafficMonMap extends Component {
     });
   };
 
+  completedReport = () => {
+    this.setState({
+      reportIncident: false
+    });
+  };
+
   render() {
+    this.getAllReports();
     // {this.renderIncidents.map()}
     return (
       <div className="map">
@@ -136,16 +158,12 @@ export default class TrafficMonMap extends Component {
             );
           })}
         </GoogleMapReact>
-        <MapModal mapClick={this.reportIncident} />
-        {/* <Button
-          variant={'danger'}
-          style={buttonStyle}
-          // onClick={this.setState({
-          //   reportIncident: true
-          // })}
-        >
-          Create Report
-        </Button> */}
+        <div style={divStyle}>
+          <MapModal mapClick={this.reportIncident} />
+          <Button style={buttonStyle} variant="warning" onClick={this.completedReport}>
+            Close Report
+          </Button>
+        </div>
       </div>
     );
   }
