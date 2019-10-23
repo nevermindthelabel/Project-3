@@ -10,7 +10,6 @@ let customPage;
 let customTable;
 
 class Home extends Component {
-  _isMounted = false;
   static contextType = AppContext;
 
   state = {
@@ -19,7 +18,6 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    this._isMounted = true;
     this.getUser();
   }
 
@@ -75,7 +73,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Navigation />
+        <Navigation user={this.context.user.username} />
         {customPage}
         <Footer />
       </div>
