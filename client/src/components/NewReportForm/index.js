@@ -12,7 +12,12 @@ function NewReportForm(props) {
       <Form style={style}>
         <Form.Group controlId="trafficReport.ControlSelect1">
           <Form.Label>Report Type</Form.Label>
-          <Form.Control as="select" name="type" onChange={props.onChange}>
+          <Form.Control
+            as="select"
+            name="type"
+            placeholder="Incident Type"
+            onChange={props.onChange}
+          >
             <option>Traffic</option>
             <option>Minor Accident</option>
             <option>Major Accident</option>
@@ -48,7 +53,12 @@ function NewReportForm(props) {
 
         <Form.Group controlId="trafficReport.ControlSelect2">
           <Form.Label>State</Form.Label>
-          <Form.Control as="select" name="state" onChange={props.onChange}>
+          <Form.Control
+            as="select"
+            name="state"
+            placeholder="Select State"
+            onChange={props.onChange}
+          >
             <option>Alabama</option>
             <option>Alaska</option>
             <option>Arizona</option>
